@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Harry Vu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Harry<span>.</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="partnerships.html">Partnerships</a></li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="contact.html" class="nav__cta">Hire Me</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="partnerships.html">Partnerships</a>
+    <a href="metrics.html">Metrics</a>
+    <a href="contact.html">Hire Me →</a>
+  </div>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <div style="padding-top: var(--nav-h);"></div>
+  <section class="section">
+    <div class="container">
+
+      <span class="label fade-in">Work</span>
+      <h1 class="section-title fade-in delay-1">Video Portfolio</h1>
+      <p class="section-sub fade-in delay-2">
+        Browse by format or niche. All content shot in TikTok-native 9:16 ratio.
+      </p>
+
+      <!-- ============ FILTERS ============ -->
+      <div class="filter-bar fade-in delay-2">
+
+        <!-- Format filter -->
+        <!-- === UPDATE: Add/remove formats as needed. Match data-filter-format to card's data-format === -->
+        <div class="filter-group">
+          <div class="filter-group__label">By Format</div>
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter-format="all">All Formats</button>
+            <button class="filter-tab" data-filter-format="talk-to-camera">Talk-to-Camera</button>
+            <button class="filter-tab" data-filter-format="quick-relatable">Quick Relatable</button>
+            <button class="filter-tab" data-filter-format="punchy-skit">Punchy Skit</button>
+            <button class="filter-tab" data-filter-format="vlog-montage">Vlog Montage</button>
+            <button class="filter-tab" data-filter-format="interview">Interview Series</button>
+          </div>
+        </div>
+
+        <!-- Niche filter -->
+        <!-- === UPDATE: Add/remove niches as needed. Match data-filter-niche to card's data-niche === -->
+        <div class="filter-group">
+          <div class="filter-group__label">By Niche</div>
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter-niche="all">All Niches</button>
+            <button class="filter-tab" data-filter-niche="student-advice">Student Advice</button>
+            <button class="filter-tab" data-filter-niche="intl-student">International Student Life</button>
+            <button class="filter-tab" data-filter-niche="sydney">Sydney</button>
+            <button class="filter-tab" data-filter-niche="los-angeles">Los Angeles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ VIDEO GRID ============ -->
+      <!--
+        HOW TO ADD A REAL VIDEO:
+        1. Set data-format to one of: talk-to-camera | quick-relatable | punchy-skit | vlog-montage | interview
+        2. Set data-niche to one of: student-advice | intl-student | sydney | los-angeles
+        3. Replace the .video-card__thumb-placeholder div with: <img src="your-thumbnail.jpg" alt="...">
+        4. Update the href on .video-card__watch to your TikTok video URL
+        5. Update the title and tags
+      -->
+
+      <div class="video-grid">
+
+        <!-- Card 1 -->
+        <div class="video-card fade-in" data-format="talk-to-camera" data-niche="student-advice">
+          <div class="video-card__thumb">
+            <!-- REPLACE: swap placeholder div with <img src="thumbnail.jpg" alt="Video title"> -->
+            <div class="video-card__thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg>
+              Add Thumbnail
+            </div>
+            <div class="video-card__play">
+              <div class="video-card__play-btn">
+                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__title">5 Things I Wish I Knew Before Uni in Sydney</div>
+            <div class="video-card__tags">
+              <span class="tag tag--format">Talk-to-Camera</span>
+              <span class="tag tag--niche">Student Advice</span>
+            </div>
+          </div>
+          <!-- REPLACE: Update href to real TikTok URL -->
+          <a href="#" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="video-card fade-in delay-1" data-format="vlog-montage" data-niche="los-angeles">
+          <div class="video-card__thumb">
+            <div class="video-card__thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg>
+              Add Thumbnail
+            </div>
+            <div class="video-card__play">
+              <div class="video-card__play-btn">
+                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__title">Exchange Student in LA — Week 1 Vlog</div>
+            <div class="video-card__tags">
+              <span class="tag tag--format">Vlog Montage</span>
+              <span class="tag tag--niche">Los Angeles</span>
+            </div>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="video-card fade-in delay-2" data-format="quick-relatable" data-niche="intl-student">
+          <div class="video-card__thumb">
+            <div class="video-card__thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg>
+              Add Thumbnail
+            </div>
+            <div class="video-card__play">
+              <div class="video-card__play-btn">
+                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__title">POV: International Student Grocery Run</div>
+            <div class="video-card__tags">
+              <span class="tag tag--format">Quick Relatable</span>
+              <span class="tag tag--niche">International Student</span>
+            </div>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="video-card fade-in" data-format="punchy-skit" data-niche="student-advice">
+          <div class="video-card__thumb">
+            <div class="video-card__thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg>
+              Add Thumbnail
+            </div>
+            <div class="video-card__play">
+              <div class="video-card__play-btn">
+                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__title">When Your Group Project Has That One Guy</div>
+            <div class="video-card__tags">
+              <span class="tag tag--format">Punchy Skit</span>
+              <span class="tag tag--niche">Student Advice</span>
+            </div>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="video-card fade-in delay-1" data-format="interview" data-niche="intl-student">
+          <div class="video-card__thumb">
+            <div class="video-card__thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg>
+              Add Thumbnail
+            </div>
+            <div class="video-card__play">
+              <div class="video-card__play-btn">
+                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__title">Ep. 3 — Sabrina Zeng on Study Abroad Life</div>
+            <div class="video-card__tags">
+              <span class="tag tag--format">Interview Series</span>
+              <span class="tag tag--niche">International Student</span>
+            </div>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="video-card fade-in delay-2" data-format="vlog-montage" data-niche="sydney">
+          <div class="video-card__thumb">
+            <div class="video-card__thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg>
+              Add Thumbnail
+            </div>
+            <div class="video-card__play">
+              <div class="video-card__play-btn">
+                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__title">Sydney Harbour to Bondi — Weekend Montage</div>
+            <div class="video-card__tags">
+              <span class="tag tag--format">Vlog Montage</span>
+              <span class="tag tag--niche">Sydney</span>
+            </div>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="video-card fade-in" data-format="talk-to-camera" data-niche="los-angeles">
+          <div class="video-card__thumb">
+            <div class="video-card__thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg>
+              Add Thumbnail
+            </div>
+            <div class="video-card__play">
+              <div class="video-card__play-btn">
+                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__title">Honest Thoughts: USC vs USYD Campus Life</div>
+            <div class="video-card__tags">
+              <span class="tag tag--format">Talk-to-Camera</span>
+              <span class="tag tag--niche">Los Angeles</span>
+            </div>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="video-card fade-in delay-1" data-format="quick-relatable" data-niche="sydney">
+          <div class="video-card__thumb">
+            <div class="video-card__thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg>
+              Add Thumbnail
+            </div>
+            <div class="video-card__play">
+              <div class="video-card__play-btn">
+                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__title">Sydney on a Student Budget — What's Actually Free</div>
+            <div class="video-card__tags">
+              <span class="tag tag--format">Quick Relatable</span>
+              <span class="tag tag--niche">Sydney</span>
+            </div>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+        </div>
+
+        <!-- === ADD MORE CARDS HERE following the same pattern === -->
+
+      </div><!-- /video-grid -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer__inner">
+      <span class="footer__logo">Harry<span>.</span></span>
+      <span class="footer__copy">© <span id="yr"></span> Harry Vu. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

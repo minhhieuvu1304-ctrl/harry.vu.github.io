@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Harry Vu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Harry<span>.</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="partnerships.html">Partnerships</a></li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="contact.html" class="nav__cta">Hire Me</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="partnerships.html">Partnerships</a>
+    <a href="metrics.html">Metrics</a>
+    <a href="contact.html">Hire Me →</a>
+  </div>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <div style="padding-top: var(--nav-h);"></div>
+  <section class="section">
+    <div class="container">
+
+      <span class="label fade-in">Contact</span>
+      <h1 class="section-title fade-in delay-1">Let's Work Together</h1>
+      <!-- === UPDATE: Edit the CTA line below === -->
+      <p class="section-sub fade-in delay-2">
+        Open to content creation roles, UGC partnerships, and brand collaborations.
+      </p>
+
+      <div class="contact-grid fade-in delay-2">
+
+        <!-- ============ LEFT: Contact channels ============ -->
+        <div>
+          <p class="contact-cta">
+            <!-- === UPDATE: Personalise this blurb if needed === -->
+            Whether you're a brand looking for authentic UGC, a recruiter hiring for a content role, or an agency exploring creator partnerships — I'd love to hear from you. I typically respond within 24 hours.
+          </p>
+
+          <div class="contact-links">
+
+            <!-- Email -->
+            <!-- === UPDATE: Replace email address if different === -->
+            <a href="mailto:minhhieuvu.1304@gmail.com" class="contact-link">
+              <div class="contact-link__icon">✉️</div>
+              <div class="contact-link__text">
+                <div class="contact-link__platform">Email</div>
+                <div class="contact-link__value">minhhieuvu.1304@gmail.com</div>
+              </div>
+              <span class="contact-link__arrow">↗</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <!-- === UPDATE: Replace LinkedIn URL if different === -->
+            <a href="https://www.linkedin.com/in/minh-hieu-harry-vu" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-link__icon">💼</div>
+              <div class="contact-link__text">
+                <div class="contact-link__platform">LinkedIn</div>
+                <div class="contact-link__value">minh-hieu-harry-vu</div>
+              </div>
+              <span class="contact-link__arrow">↗</span>
+            </a>
+
+            <!-- TikTok -->
+            <!-- === UPDATE: Replace # with your real TikTok profile URL === -->
+            <a href="#" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-link__icon">🎵</div>
+              <div class="contact-link__text">
+                <div class="contact-link__platform">TikTok</div>
+                <!-- REPLACE: Update with your TikTok handle -->
+                <div class="contact-link__value">@yourhandle</div>
+              </div>
+              <span class="contact-link__arrow">↗</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- ============ RIGHT: Contact form ============ -->
+        <!-- === TO DO: Wire up form to Formspree (formspree.io) or Netlify Forms for real submissions.
+             See main.js initContactForm() for where to add backend logic. === -->
+        <div>
+          <form id="contact-form" class="contact-form" novalidate>
+
+            <div class="form-field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+            </div>
+
+            <div class="form-field">
+              <label for="company">Company / Role</label>
+              <input type="text" id="company" name="company" placeholder="Brand Manager at Acme Co." />
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project, timeline, and budget..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Send Message →</button>
+
+            <div id="form-success" class="form-success">
+              ✓ Message sent! I'll be in touch within 24 hours.
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer__inner">
+      <span class="footer__logo">Harry<span>.</span></span>
+      <span class="footer__copy">© <span id="yr"></span> Harry Vu. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
