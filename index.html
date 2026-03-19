@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- ============ NAV ============ -->
   <nav class="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">Harry<span>.</span></a>
@@ -20,41 +18,24 @@
         <li><a href="metrics.html">Metrics</a></li>
         <li><a href="contact.html" class="nav__cta">Hire Me</a></li>
       </ul>
-      <button class="nav__hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
-
-  <!-- Mobile nav -->
   <div class="nav__mobile">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="partnerships.html">Partnerships</a>
-    <a href="metrics.html">Metrics</a>
+    <a href="index.html">Home</a><a href="portfolio.html">Portfolio</a>
+    <a href="partnerships.html">Partnerships</a><a href="metrics.html">Metrics</a>
     <a href="contact.html">Hire Me →</a>
   </div>
 
-  <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero__bg"></div>
     <div class="hero__content">
-
       <div class="hero__eyebrow fade-in">
         <span class="hero__eyebrow-dot"></span>
         Available for collaborations
       </div>
-
-      <!-- === UPDATE: Change name display if preferred === -->
-      <h1 class="hero__name fade-in delay-1">
-        Harry<br><span>Vu.</span>
-      </h1>
-
-      <!-- === UPDATE: Adjust tagline to match your positioning === -->
-      <p class="hero__tagline fade-in delay-2">
-        Content Creator &nbsp;·&nbsp; UGC Specialist &nbsp;·&nbsp; Storyteller
-      </p>
-
+      <h1 class="hero__name fade-in delay-1">Harry<br><span>Vu.</span></h1>
+      <p class="hero__tagline fade-in delay-2">Content Creator &nbsp;·&nbsp; UGC Specialist &nbsp;·&nbsp; Storyteller</p>
       <div class="hero__actions fade-in delay-3">
         <a href="portfolio.html" class="btn btn--primary">
           View My Work
@@ -62,21 +43,16 @@
         </a>
         <a href="contact.html" class="btn btn--ghost">Hire Me</a>
       </div>
-
-      <!-- === UPDATE: Edit bio sentences below === -->
       <p class="hero__bio fade-in delay-4">
-        University of Sydney student and SIUAES full-ride scholar, creating content that connects across cultures — from Sydney to Los Angeles. With 5M+ views across three accounts, I specialize in relatable storytelling, UGC production, and brand-aligned content for student, lifestyle, and education niches.
+        University of Sydney student and SIUAES full-ride scholar, creating content that connects across cultures — from Sydney to Los Angeles. With 5M+ views across three accounts, I specialise in relatable storytelling, UGC production, and brand-aligned content for student, lifestyle, and education niches.
       </p>
-
-      <!-- Stats strip with count-up animation -->
-      <!-- === UPDATE: Change data-count values to your real numbers === -->
       <div class="stats-strip fade-in delay-4">
         <div class="stat">
           <div class="stat__number" data-count="5" data-suffix="M+">5M+</div>
           <div class="stat__label">Total Views</div>
         </div>
         <div class="stat">
-          <div class="stat__number" data-count="7000" data-suffix="+">7000+</div>
+          <div class="stat__number" data-count="8000" data-suffix="+">8,000+</div>
           <div class="stat__label">Followers</div>
         </div>
         <div class="stat">
@@ -84,19 +60,15 @@
           <div class="stat__label">Brand Deals</div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
   <footer>
     <div class="footer__inner">
       <span class="footer__logo">Harry<span>.</span></span>
-      <!-- === UPDATE: Update year automatically or manually === -->
       <span class="footer__copy">© <span id="yr"></span> Harry Vu. All rights reserved.</span>
     </div>
   </footer>
-
   <script src="main.js"></script>
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
