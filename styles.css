@@ -97,7 +97,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .fade-in.delay-4 { transition-delay: 0.4s; }
 
 /* HERO */
-.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: var(--nav-h); position: relative; overflow: hidden; }
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; padding-top: var(--nav-h); position: relative; overflow: hidden; }
 .hero__bg {
   position: absolute; inset: 0; pointer-events: none;
   background:
