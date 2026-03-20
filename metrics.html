@@ -5,6 +5,182 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Metrics — Harry Vu</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---- Channel cards ---- */
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+    .channel-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .channel-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .channel-card--main::before   { background: var(--accent); }
+    .channel-card--edu::before    { background: var(--accent-2); }
+    .channel-card--collab::before { background: var(--accent-3); }
+    .channel-card__handle {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .channel-card--main   .channel-card__handle { color: var(--accent); }
+    .channel-card--edu    .channel-card__handle { color: var(--accent-2); }
+    .channel-card--collab .channel-card__handle { color: #2e7a72; }
+    .channel-card__badge {
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 100px;
+      background: var(--bg-2);
+      color: var(--text-dim);
+    }
+    .channel-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .channel-stat__val {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .channel-stat__label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+    }
+    .channel-stat__growth {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #2a7a72;
+      margin-top: 2px;
+    }
+    .channel-stat__period {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    /* ---- Chart area ---- */
+    .chart-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 64px;
+    }
+    .chart-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .chart-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .chart-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-mid);
+    }
+    .chart-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .chart-canvas-wrap {
+      position: relative;
+      height: 260px;
+    }
+    canvas { width: 100% !important; }
+
+    /* ---- Brands section ---- */
+    .brands-section {
+      margin-bottom: 64px;
+    }
+    .brands-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .brand-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .brand-pill:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(124,110,245,0.1);
+    }
+    .brand-pill--featured {
+      background: var(--accent-dim);
+      border-color: rgba(124,110,245,0.25);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .brand-pill__dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .brand-pill--featured .brand-pill__dot {
+      background: var(--accent);
+    }
+    .brand-pill--regular .brand-pill__dot {
+      background: var(--text-dim);
+    }
+
+    @media (max-width: 600px) {
+      .chart-wrap { padding: 24px 20px; }
+      .chart-canvas-wrap { height: 200px; }
+    }
+  </style>
 </head>
 <body>
   <nav class="nav">
@@ -21,22 +197,25 @@
     </div>
   </nav>
   <div class="nav__mobile">
-    <a href="index.html">Home</a><a href="portfolio.html">Portfolio</a>
-    <a href="partnerships.html">Partnerships</a><a href="metrics.html">Metrics</a>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="partnerships.html">Partnerships</a>
+    <a href="metrics.html">Metrics</a>
     <a href="contact.html">Hire Me →</a>
   </div>
 
   <div style="padding-top: var(--nav-h);"></div>
   <section class="section">
     <div class="container">
+
       <span class="label fade-in">Performance</span>
       <h1 class="section-title fade-in delay-1">By the Numbers</h1>
-      <p class="section-sub fade-in delay-2">Real reach, real engagement — numbers across all accounts combined.</p>
+      <p class="section-sub fade-in delay-2">Real reach, real engagement — numbers across all three TikTok accounts.</p>
 
-      <!-- Headline stats -->
+      <!-- ===== HEADLINE STATS ===== -->
       <div class="headline-stats fade-in delay-2">
         <div class="headline-stat">
-          <div class="headline-stat__num accent" data-count="5000000" data-suffix="+">5M+</div>
+          <div class="headline-stat__num accent" data-count="5" data-suffix="M+">5M+</div>
           <div class="headline-stat__label">Total Views</div>
         </div>
         <div class="headline-stat">
@@ -44,12 +223,12 @@
           <div class="headline-stat__label">Followers Combined</div>
         </div>
         <div class="headline-stat">
-          <div class="headline-stat__num" data-count="3" data-suffix="">3</div>
-          <div class="headline-stat__label">Brand Partnerships</div>
+          <div class="headline-stat__num" data-count="10" data-suffix="">10</div>
+          <div class="headline-stat__label">Brands Contacted</div>
         </div>
       </div>
 
-      <!-- Supporting metrics -->
+      <!-- ===== SUPPORTING METRICS ===== -->
       <div class="metrics-grid fade-in delay-3">
         <div class="metric-card">
           <div class="metric-card__icon">📈</div>
@@ -72,18 +251,198 @@
           <div class="metric-card__label">Brand deals completed</div>
         </div>
         <div class="metric-card">
-          <div class="metric-card__icon">📱</div>
-          <div class="metric-card__val">3</div>
-          <div class="metric-card__label">Active accounts</div>
-        </div>
-        <div class="metric-card">
           <div class="metric-card__icon">🌏</div>
           <div class="metric-card__val">AU · US · VN</div>
           <div class="metric-card__label">Top audience regions</div>
         </div>
+        <div class="metric-card">
+          <div class="metric-card__icon">🔗</div>
+          <div class="metric-card__val">10</div>
+          <div class="metric-card__label">Brands contacted</div>
+        </div>
       </div>
 
-      <!-- Performance by format -->
+      <!-- ===== PER-CHANNEL BREAKDOWN ===== -->
+      <span class="label fade-in">Channels</span>
+      <h2 class="section-title fade-in delay-1" style="font-size:1.6rem;margin-bottom:12px;">Account Breakdown</h2>
+      <p style="color:var(--text-mid);font-size:0.95rem;margin-bottom:36px;" class="fade-in delay-2">Key metrics per channel from each account's strongest recorded period.</p>
+
+      <div class="channel-grid fade-in delay-2">
+
+        <!-- Channel 1 — @harry.haries (Jul–Sep 2025) -->
+        <div class="channel-card channel-card--main">
+          <div class="channel-card__handle">
+            🎵 @harry.haries
+            <span class="channel-card__badge">Lifestyle · Intl. Students</span>
+          </div>
+          <div class="channel-stats">
+            <div>
+              <div class="channel-stat__val">1.2M</div>
+              <div class="channel-stat__label">Post views</div>
+              <div class="channel-stat__growth">↑ +17,147%</div>
+              <div class="channel-stat__period">Jul–Sep 2025</div>
+            </div>
+            <div>
+              <div class="channel-stat__val">97K</div>
+              <div class="channel-stat__label">Likes</div>
+              <div class="channel-stat__growth">↑ +32,252%</div>
+              <div class="channel-stat__period">Jul–Sep 2025</div>
+            </div>
+            <div>
+              <div class="channel-stat__val">27K</div>
+              <div class="channel-stat__label">Shares</div>
+              <div class="channel-stat__growth">↑ >999%</div>
+              <div class="channel-stat__period">Jul–Sep 2025</div>
+            </div>
+            <div>
+              <div class="channel-stat__val">1,350</div>
+              <div class="channel-stat__label">Comments</div>
+              <div class="channel-stat__growth">↑ +7,400%</div>
+              <div class="channel-stat__period">Jul–Sep 2025</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Channel 2 — @hieuvu.haries (Feb–Mar 2026) -->
+        <div class="channel-card channel-card--edu">
+          <div class="channel-card__handle">
+            🎵 @hieuvu.haries
+            <span class="channel-card__badge">Educational</span>
+          </div>
+          <div class="channel-stats">
+            <div>
+              <div class="channel-stat__val">434K</div>
+              <div class="channel-stat__label">Post views</div>
+              <div class="channel-stat__growth">↑ +153%</div>
+              <div class="channel-stat__period">Feb–Mar 2026</div>
+            </div>
+            <div>
+              <div class="channel-stat__val">40K</div>
+              <div class="channel-stat__label">Likes</div>
+              <div class="channel-stat__growth">↑ +292%</div>
+              <div class="channel-stat__period">Feb–Mar 2026</div>
+            </div>
+            <div>
+              <div class="channel-stat__val">3,516</div>
+              <div class="channel-stat__label">Shares</div>
+              <div class="channel-stat__growth">↑ +363%</div>
+              <div class="channel-stat__period">Feb–Mar 2026</div>
+            </div>
+            <div>
+              <div class="channel-stat__val">10K</div>
+              <div class="channel-stat__label">Profile views</div>
+              <div class="channel-stat__growth">↑ +238%</div>
+              <div class="channel-stat__period">Feb–Mar 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Channel 3 — @harry.insydney (Nov 2025–Feb 2026) -->
+        <div class="channel-card channel-card--collab">
+          <div class="channel-card__handle">
+            🎵 @harry.insydney
+            <span class="channel-card__badge">Arrowster Collab</span>
+          </div>
+          <div class="channel-stats">
+            <div>
+              <div class="channel-stat__val">2,898</div>
+              <div class="channel-stat__label">Total followers</div>
+              <div class="channel-stat__growth">All time</div>
+              <div class="channel-stat__period">As of Feb 2026</div>
+            </div>
+            <div>
+              <div class="channel-stat__val">2,591</div>
+              <div class="channel-stat__label">Net new followers</div>
+              <div class="channel-stat__growth">↑ >999%</div>
+              <div class="channel-stat__period">Nov 2025–Feb 2026</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== CHART: Followers & Views over time ===== -->
+      <div class="chart-wrap fade-in delay-3">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">Growth Across Channels</div>
+            <p style="font-size:0.8rem;color:var(--text-dim);margin-top:4px;">Post views and follower milestones by period</p>
+          </div>
+          <div class="chart-legend">
+            <div class="chart-legend-item">
+              <div class="chart-legend-dot" style="background:#7c6ef5;"></div>
+              @harry.haries
+            </div>
+            <div class="chart-legend-item">
+              <div class="chart-legend-dot" style="background:#f5a97c;"></div>
+              @hieuvu.haries
+            </div>
+            <div class="chart-legend-item">
+              <div class="chart-legend-dot" style="background:#7cd4c8;"></div>
+              @harry.insydney
+            </div>
+          </div>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="growthChart"></canvas>
+        </div>
+      </div>
+
+      <!-- ===== BRANDS CONTACTED ===== -->
+      <div class="brands-section fade-in delay-2">
+        <span class="label">Brands</span>
+        <h2 class="section-title" style="font-size:1.6rem;margin-bottom:12px;">Brands Contacted</h2>
+        <p style="color:var(--text-mid);font-size:0.95rem;margin-bottom:28px;">A selection of brands I've worked with or reached out to for collaboration.</p>
+        <div class="brands-grid">
+          <!-- Featured / completed deals -->
+          <div class="brand-pill brand-pill--featured">
+            <div class="brand-pill__dot"></div>
+            Arrowster
+          </div>
+          <div class="brand-pill brand-pill--featured">
+            <div class="brand-pill__dot"></div>
+            AUG Student Services
+          </div>
+          <div class="brand-pill brand-pill--featured">
+            <div class="brand-pill__dot"></div>
+            AIESEC
+          </div>
+          <!-- Contacted brands -->
+          <div class="brand-pill brand-pill--regular">
+            <div class="brand-pill__dot"></div>
+            Collanote
+          </div>
+          <div class="brand-pill brand-pill--regular">
+            <div class="brand-pill__dot"></div>
+            Lewkin
+          </div>
+          <div class="brand-pill brand-pill--regular">
+            <div class="brand-pill__dot"></div>
+            Expert Education
+          </div>
+          <div class="brand-pill brand-pill--regular">
+            <div class="brand-pill__dot"></div>
+            Glamisky
+          </div>
+          <div class="brand-pill brand-pill--regular">
+            <div class="brand-pill__dot"></div>
+            Sky Beauty
+          </div>
+          <div class="brand-pill brand-pill--regular">
+            <div class="brand-pill__dot"></div>
+            Notion
+          </div>
+          <div class="brand-pill brand-pill--regular">
+            <div class="brand-pill__dot"></div>
+            Duolingo
+          </div>
+        </div>
+        <p style="font-size:0.72rem;color:var(--text-dim);margin-top:16px;">
+          ★ Highlighted = completed partnership &nbsp;·&nbsp; Others = contacted / in progress
+        </p>
+      </div>
+
+      <!-- ===== PERFORMANCE BY FORMAT ===== -->
       <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:36px 40px;" class="fade-in delay-3">
         <div class="perf-title">Performance by Format</div>
         <div class="perf-bars">
@@ -103,7 +462,7 @@
             <div class="perf-bar-pct">65%</div>
           </div>
           <div class="perf-bar-row">
-            <div class="perf-bar-label">Punchy Skit</div>
+            <div class="perf-bar-label">Editorial Skit</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" data-pct="58"></div></div>
             <div class="perf-bar-pct">58%</div>
           </div>
@@ -113,9 +472,9 @@
             <div class="perf-bar-pct">44%</div>
           </div>
         </div>
-        <!-- UPDATE: Replace percentage values above with your real format breakdown when ready -->
-        <p style="font-size:0.72rem;color:var(--text-dim);margin-top:24px;">* Relative performance index based on average views per format. Update these values in metrics.html when you have exact data.</p>
+        <p style="font-size:0.72rem;color:var(--text-dim);margin-top:24px;">* Relative performance index based on average views per format across all accounts.</p>
       </div>
+
     </div>
   </section>
 
@@ -125,7 +484,88 @@
       <span class="footer__copy">© <span id="yr"></span> Harry Vu. All rights reserved.</span>
     </div>
   </footer>
+
   <script src="main.js"></script>
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Detect light/dark for chart colours
+    const style = getComputedStyle(document.documentElement);
+    const textColor  = '#5a5650';
+    const gridColor  = 'rgba(0,0,0,0.06)';
+
+    const ctx = document.getElementById('growthChart').getContext('2d');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        // Periods shown on x-axis
+        labels: ['Jul–Sep 2025', 'Nov 2025–Feb 2026', 'Feb–Mar 2026'],
+        datasets: [
+          {
+            label: '@harry.haries (post views)',
+            data: [1200000, null, null],
+            backgroundColor: 'rgba(124,110,245,0.75)',
+            borderColor: '#7c6ef5',
+            borderWidth: 1.5,
+            borderRadius: 6,
+          },
+          {
+            label: '@harry.insydney (followers)',
+            data: [null, 2898, null],
+            backgroundColor: 'rgba(124,212,200,0.75)',
+            borderColor: '#7cd4c8',
+            borderWidth: 1.5,
+            borderRadius: 6,
+          },
+          {
+            label: '@hieuvu.haries (post views)',
+            data: [null, null, 434000],
+            backgroundColor: 'rgba(245,169,124,0.75)',
+            borderColor: '#f5a97c',
+            borderWidth: 1.5,
+            borderRadius: 6,
+          },
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                const val = ctx.raw;
+                if (!val) return null;
+                if (val >= 1000000) return ctx.dataset.label + ': ' + (val/1000000).toFixed(1) + 'M';
+                if (val >= 1000)    return ctx.dataset.label + ': ' + (val/1000).toFixed(1) + 'K';
+                return ctx.dataset.label + ': ' + val;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: gridColor },
+            ticks: { color: textColor, font: { size: 12 } },
+          },
+          y: {
+            grid: { color: gridColor },
+            ticks: {
+              color: textColor,
+              font: { size: 11 },
+              callback: function(val) {
+                if (val >= 1000000) return (val/1000000).toFixed(1) + 'M';
+                if (val >= 1000)    return (val/1000).toFixed(0) + 'K';
+                return val;
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
