@@ -5,10 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Harry Vu</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---- Contact page extras ---- */
+    .social-group {
+      margin-bottom: 24px;
+    }
+    .social-group__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+      padding-left: 4px;
+    }
+    .social-group .contact-links {
+      gap: 8px;
+    }
+    /* Compact variant for grouped links */
+    .contact-link--compact {
+      padding: 12px 16px;
+    }
+    .contact-link--compact .contact-link__icon {
+      width: 30px;
+      height: 30px;
+      font-size: 0.85rem;
+      border-radius: 8px;
+    }
+    .contact-link--compact .contact-link__platform {
+      font-size: 0.65rem;
+    }
+    .contact-link--compact .contact-link__value {
+      font-size: 0.8rem;
+    }
+    /* Channel badge */
+    .contact-link__badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--accent-dim);
+      color: var(--accent);
+      padding: 2px 7px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .contact-link__badge--teal {
+      background: rgba(124,212,200,0.18);
+      color: #2e7a72;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- ============ NAV ============ -->
+ 
   <nav class="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">Harry<span>.</span></a>
@@ -31,110 +80,164 @@
     <a href="metrics.html">Metrics</a>
     <a href="contact.html">Hire Me →</a>
   </div>
-
-  <!-- ============ PAGE HEADER ============ -->
+ 
   <div style="padding-top: var(--nav-h);"></div>
   <section class="section">
     <div class="container">
-
+ 
       <span class="label fade-in">Contact</span>
       <h1 class="section-title fade-in delay-1">Let's Work Together</h1>
-      <!-- === UPDATE: Edit the CTA line below === -->
       <p class="section-sub fade-in delay-2">
         Open to content creation roles, UGC partnerships, and brand collaborations.
       </p>
-
+ 
       <div class="contact-grid fade-in delay-2">
-
-        <!-- ============ LEFT: Contact channels ============ -->
+ 
+        <!-- ===== LEFT: Social links grouped ===== -->
         <div>
           <p class="contact-cta">
-            <!-- === UPDATE: Personalise this blurb if needed === -->
             Whether you're a brand looking for authentic UGC, a recruiter hiring for a content role, or an agency exploring creator partnerships — I'd love to hear from you. I typically respond within 24 hours.
           </p>
-
-          <div class="contact-links">
-
-            <!-- Email -->
-            <!-- === UPDATE: Replace email address if different === -->
-            <a href="/cdn-cgi/l/email-protection#492420272121202c3c3f3c67787a797d092e24282025672a2624" class="contact-link">
-              <div class="contact-link__icon">✉️</div>
-              <div class="contact-link__text">
-                <div class="contact-link__platform">Email</div>
-                <div class="contact-link__value"><span class="__cf_email__" data-cfemail="deb3b7b0b6b6b7bbaba8abf0efedeeea9eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</span></div>
-              </div>
-              <span class="contact-link__arrow">↗</span>
-            </a>
-
-            <!-- LinkedIn -->
-            <!-- === UPDATE: Replace LinkedIn URL if different === -->
-            <a href="https://www.linkedin.com/in/minh-hieu-harry-vu" target="_blank" rel="noopener" class="contact-link">
-              <div class="contact-link__icon">💼</div>
-              <div class="contact-link__text">
-                <div class="contact-link__platform">LinkedIn</div>
-                <div class="contact-link__value">minh-hieu-harry-vu</div>
-              </div>
-              <span class="contact-link__arrow">↗</span>
-            </a>
-
-            <!-- TikTok -->
-            <!-- === UPDATE: Replace # with your real TikTok profile URL === -->
-            <a href="#" target="_blank" rel="noopener" class="contact-link">
-              <div class="contact-link__icon">🎵</div>
-              <div class="contact-link__text">
-                <div class="contact-link__platform">TikTok</div>
-                <!-- REPLACE: Update with your TikTok handle -->
-                <div class="contact-link__value">@yourhandle</div>
-              </div>
-              <span class="contact-link__arrow">↗</span>
-            </a>
-
+ 
+          <!-- TikTok accounts -->
+          <div class="social-group">
+            <div class="social-group__label">TikTok</div>
+            <div class="contact-links">
+ 
+              <a href="https://www.tiktok.com/@harry.haries" target="_blank" rel="noopener" class="contact-link contact-link--compact">
+                <div class="contact-link__icon">🎵</div>
+                <div class="contact-link__text">
+                  <div class="contact-link__platform">TikTok</div>
+                  <div class="contact-link__value">@harry.haries</div>
+                </div>
+                <span class="contact-link__badge">Lifestyle · Intl. Students</span>
+                <span class="contact-link__arrow">↗</span>
+              </a>
+ 
+              <a href="https://www.tiktok.com/@hieuvu.haries" target="_blank" rel="noopener" class="contact-link contact-link--compact">
+                <div class="contact-link__icon">🎵</div>
+                <div class="contact-link__text">
+                  <div class="contact-link__platform">TikTok</div>
+                  <div class="contact-link__value">@hieuvu.haries</div>
+                </div>
+                <span class="contact-link__badge">Educational</span>
+                <span class="contact-link__arrow">↗</span>
+              </a>
+ 
+              <a href="https://www.tiktok.com/@harry.insydney" target="_blank" rel="noopener" class="contact-link contact-link--compact">
+                <div class="contact-link__icon">🎵</div>
+                <div class="contact-link__text">
+                  <div class="contact-link__platform">TikTok</div>
+                  <div class="contact-link__value">@harry.insydney</div>
+                </div>
+                <span class="contact-link__badge contact-link__badge--teal">Arrowster Collab</span>
+                <span class="contact-link__arrow">↗</span>
+              </a>
+ 
+            </div>
           </div>
+ 
+          <!-- Instagram accounts -->
+          <div class="social-group">
+            <div class="social-group__label">Instagram</div>
+            <div class="contact-links">
+ 
+              <a href="https://www.instagram.com/_harry.haries_" target="_blank" rel="noopener" class="contact-link contact-link--compact">
+                <div class="contact-link__icon">📸</div>
+                <div class="contact-link__text">
+                  <div class="contact-link__platform">Instagram</div>
+                  <div class="contact-link__value">@_harry.haries_</div>
+                </div>
+                <span class="contact-link__badge">Main</span>
+                <span class="contact-link__arrow">↗</span>
+              </a>
+ 
+              <a href="https://www.instagram.com/hieuvu.haries" target="_blank" rel="noopener" class="contact-link contact-link--compact">
+                <div class="contact-link__icon">📸</div>
+                <div class="contact-link__text">
+                  <div class="contact-link__platform">Instagram</div>
+                  <div class="contact-link__value">@hieuvu.haries</div>
+                </div>
+                <span class="contact-link__badge">Secondary</span>
+                <span class="contact-link__arrow">↗</span>
+              </a>
+ 
+            </div>
+          </div>
+ 
+          <!-- LinkedIn + Email -->
+          <div class="social-group">
+            <div class="social-group__label">Professional</div>
+            <div class="contact-links">
+ 
+              <a href="https://www.linkedin.com/in/minh-hieu-harry-vu" target="_blank" rel="noopener" class="contact-link contact-link--compact">
+                <div class="contact-link__icon">💼</div>
+                <div class="contact-link__text">
+                  <div class="contact-link__platform">LinkedIn</div>
+                  <div class="contact-link__value">minh-hieu-harry-vu</div>
+                </div>
+                <span class="contact-link__arrow">↗</span>
+              </a>
+ 
+              <a href="mailto:harry.haries1304@gmail.com" class="contact-link contact-link--compact">
+                <div class="contact-link__icon">✉️</div>
+                <div class="contact-link__text">
+                  <div class="contact-link__platform">Email</div>
+                  <div class="contact-link__value">harry.haries1304@gmail.com</div>
+                </div>
+                <span class="contact-link__arrow">↗</span>
+              </a>
+ 
+            </div>
+          </div>
+ 
         </div>
-
-        <!-- ============ RIGHT: Contact form ============ -->
-        <!-- === TO DO: Wire up form to Formspree (formspree.io) or Netlify Forms for real submissions.
-             See main.js initContactForm() for where to add backend logic. === -->
+ 
+        <!-- ===== RIGHT: Contact form ===== -->
         <div>
           <form id="contact-form" class="contact-form" novalidate>
-
+ 
             <div class="form-field">
               <label for="name">Your Name</label>
               <input type="text" id="name" name="name" placeholder="Jane Smith" required />
             </div>
-
+ 
             <div class="form-field">
               <label for="company">Company / Role</label>
               <input type="text" id="company" name="company" placeholder="Brand Manager at Acme Co." />
             </div>
-
+ 
             <div class="form-field">
               <label for="email">Email Address</label>
               <input type="email" id="email" name="email" placeholder="jane@company.com" required />
             </div>
-
+ 
             <div class="form-field">
               <label for="message">Message</label>
               <textarea id="message" name="message" placeholder="Tell me about your project, timeline, and budget..." required></textarea>
             </div>
-
+ 
             <button type="submit" class="form-submit">Send Message →</button>
-
+ 
             <div id="form-success" class="form-success">
               ✓ Message sent! I'll be in touch within 24 hours.
             </div>
-
+ 
           </form>
         </div>
-
+ 
       </div>
     </div>
   </section>
-
-  <!-- ============ FOOTER ============ -->
+ 
   <footer>
     <div class="footer__inner">
       <span class="footer__logo">Harry<span>.</span></span>
       <span class="footer__copy">© <span id="yr"></span> Harry Vu. All rights reserved.</span>
     </div>
-  </f
+  </footer>
+ 
+  <script src="main.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
