@@ -20,8 +20,8 @@
   --white:        #ffffff;
   --font-display: 'Clash Display', sans-serif;
   --font-body:    'DM Sans', sans-serif;
-  --nav-h:        64px;
-  --max-w:        1400px;
+  --nav-h:        68px;
+  --max-w:        1600px;
   --section-py:   80px;
 }
 
@@ -55,14 +55,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin: 0 auto; padding: 0 24px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.nav__logo { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text); }
+.nav__logo { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--text); }
 .nav__logo span { color: var(--accent); }
 .nav__links { display: flex; align-items: center; gap: 32px; list-style: none; }
-.nav__links a { font-size: 0.875rem; font-weight: 500; color: var(--text-mid); transition: color 0.2s; }
+.nav__links a { font-size: 1rem; font-weight: 500; color: var(--text-mid); transition: color 0.2s; }
 .nav__links a:hover, .nav__links a.active { color: var(--text); }
 .nav__cta {
   background: var(--accent) !important; color: var(--white) !important;
-  padding: 8px 20px; border-radius: 100px; font-weight: 600 !important; font-size: 0.875rem;
+  padding: 8px 20px; border-radius: 100px; font-weight: 600 !important; font-size: 1rem;
   transition: opacity 0.2s !important;
 }
 .nav__cta:hover { opacity: 0.85; }
@@ -78,7 +78,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav__mobile a:last-child { border-bottom: none; }
 
 /* UTILITIES */
-.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
 .section { padding: var(--section-py) 0; }
 .section--alt { background: var(--bg-2); }
 .label {
