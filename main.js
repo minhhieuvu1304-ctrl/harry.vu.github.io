@@ -40,10 +40,12 @@
 /* ---- Count-up animation ---- */
 function countUp(el, target, suffix, duration) {
   let start = 0;
+  const isDecimal = target % 1 !== 0;
   const step = target / (duration / 16);
   const timer = setInterval(() => {
     start = Math.min(start + step, target);
-    el.textContent = Math.floor(start).toLocaleString() + suffix;
+    const display = isDecimal ? start.toFixed(1) : Math.floor(start).toLocaleString();
+    el.textContent = display + suffix;
     if (start >= target) clearInterval(timer);
   }, 16);
 }
