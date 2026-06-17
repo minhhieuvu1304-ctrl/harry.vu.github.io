@@ -125,45 +125,59 @@
   }
 
   /* ── Stats: full width, after buttons ── */
-  .stats-strip {
+  .hero__content .stats-strip {
     grid-column: 1 / -1;
     grid-row: 6;
-    display: flex;
-    gap: 0;
-    flex-wrap: nowrap;
+    display: flex !important;
+    gap: 0 !important;
+    flex-wrap: nowrap !important;
     border-top: 1px solid rgba(26,24,24,0.1);
-    padding-top: 1.5rem;
+    border-radius: 0 !important;
+    background: transparent !important;
+    padding: 1.5rem 0 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
   }
 
-  .stat {
-    flex: 1;
-    padding-right: 2rem;
-    border-right: 1px solid rgba(26,24,24,0.1);
-    margin-right: 2rem;
+  .hero__content .stats-strip .stat {
+    flex: 1 !important;
+    padding: 0 2rem 0 0 !important;
+    margin: 0 2rem 0 0 !important;
+    border-right: 1px solid rgba(26,24,24,0.1) !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    min-width: 0;
   }
 
-  .stat:last-child {
-    border-right: none;
-    margin-right: 0;
-    padding-right: 0;
+  .hero__content .stats-strip .stat:last-child {
+    border-right: none !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
   }
 
-  .stat__number {
+  .hero__content .stats-strip .stat__number {
     font-family: 'Clash Display', sans-serif;
-    font-size: clamp(1.7rem, 2.5vw, 2.5rem);
+    font-size: clamp(1.7rem, 2.5vw, 2.5rem) !important;
     font-weight: 700;
     color: var(--accent);
     line-height: 1;
     letter-spacing: -0.02em;
+    white-space: nowrap;
   }
 
-  .stat__label {
+  .hero__content .stats-strip .stat__label {
     font-size: 0.72rem;
     color: var(--text-muted, #6b6860);
     margin-top: 0.4rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-weight: 500;
+    white-space: nowrap;
   }
 
   /* ── Name ── */
@@ -215,7 +229,7 @@
     .hero__bio-row    { grid-column: 1; grid-row: auto; }
     .hero__divider    { grid-column: 1; grid-row: auto; }
     .hero__actions    { grid-column: 1; grid-row: auto; flex-wrap: wrap; }
-    .stats-strip      { grid-column: 1; grid-row: auto; flex-wrap: wrap; gap: 1.25rem; }
+    .hero__content .stats-strip { grid-column: 1; grid-row: auto; flex-wrap: wrap !important; gap: 1.25rem !important; }
 
     .hero__photo-wrap {
       height: 280px;
@@ -225,11 +239,11 @@
     .hero__actions .btn { flex: 1 1 45%; }
     .hero__actions .btn--ghost { flex: 0 0 auto; }
 
-    .stat {
-      flex: 1 1 40%;
-      border-right: none;
-      margin-right: 0;
-      padding-right: 0;
+    .hero__content .stats-strip .stat {
+      flex: 1 1 40% !important;
+      border-right: none !important;
+      margin-right: 0 !important;
+      padding-right: 0 !important;
     }
 
     .hero__name { white-space: normal; }
