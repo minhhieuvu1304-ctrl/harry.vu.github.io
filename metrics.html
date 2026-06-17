@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Metrics — Harry Vu</title>
+  <title>Analytics — Harry Vu</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    @media (max-width: 860px) {
+      .engagement-gallery { grid-template-columns: 1fr !important; gap: 36px !important; }
+    }
+  </style>
 </head>
 <body>
   <nav class="nav">
@@ -14,7 +19,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="partnerships.html">Partnerships</a></li>
-        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="metrics.html">Analytics</a></li>
         <li><a href="contact.html" class="nav__cta">Contact</a></li>
       </ul>
       <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -22,7 +27,7 @@
   </nav>
   <div class="nav__mobile">
     <a href="index.html">Home</a><a href="portfolio.html">Portfolio</a>
-    <a href="partnerships.html">Partnerships</a><a href="metrics.html">Metrics</a>
+    <a href="partnerships.html">Partnerships</a><a href="metrics.html">Analytics</a>
     <a href="contact.html">Contact →</a>
   </div>
 
@@ -30,7 +35,7 @@
   <section class="section">
     <div class="container">
       <span class="label fade-in">Performance</span>
-      <h1 class="section-title fade-in delay-1">By the Numbers</h1>
+      <h1 class="section-title fade-in delay-1">Analytics</h1>
       <p class="section-sub fade-in delay-2">Real reach, real engagement — numbers across all accounts combined.</p>
 
       <!-- Headline stats -->
@@ -44,148 +49,109 @@
           <div class="headline-stat__label">Followers Combined</div>
         </div>
         <div class="headline-stat">
-          <div class="headline-stat__num" data-count="4" data-suffix="">8</div>
+          <div class="headline-stat__num" data-count="4" data-suffix="">4</div>
           <div class="headline-stat__label">Brand Partnerships</div>
         </div>
       </div>
 
-      <!-- Supporting metrics -->
-      <div class="metrics-grid fade-in delay-3">
-        <div class="metric-card">
-          <div class="metric-card__icon">📈</div>
-          <div class="metric-card__val">800K+</div>
-          <div class="metric-card__label">Views in single 2-week campaign</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__icon">🎯</div>
-          <div class="metric-card__val">Intl. Student</div>
-          <div class="metric-card__label">Top performing niche</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__icon">💡</div>
-          <div class="metric-card__val">Education</div>
-          <div class="metric-card__label">Primary content focus</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__icon">🤝</div>
-          <div class="metric-card__val">3</div>
-          <div class="metric-card__label">Brand deals completed</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__icon">📱</div>
-          <div class="metric-card__val">3</div>
-          <div class="metric-card__label">Active accounts</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__icon">🌏</div>
-          <div class="metric-card__val">AU · US · VN</div>
-          <div class="metric-card__label">Top audience regions</div>
+      <!-- Followers by Platform -->
+      <div class="fade-in delay-3" style="margin-bottom:56px;">
+        <h2 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text);margin:0 0 16px;">Followers by Platform</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:2px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+          <div style="flex:1;min-width:200px;background:var(--white);padding:32px 28px;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--text);line-height:1;margin-bottom:10px;">8,660</div>
+            <div style="font-size:0.78rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);">🎵 TikTok Followers</div>
+          </div>
+          <div style="flex:1;min-width:200px;background:var(--white);padding:32px 28px;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--text);line-height:1;margin-bottom:10px;">7,400</div>
+            <div style="font-size:0.78rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);">📸 Instagram Followers</div>
+          </div>
+          <div style="flex:1;min-width:200px;background:var(--white);padding:32px 28px;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--text);line-height:1;margin-bottom:10px;">1,600</div>
+            <div style="font-size:0.78rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);">💼 LinkedIn Followers</div>
+          </div>
         </div>
       </div>
 
-      <!-- Performance by format -->
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:36px 40px;" class="fade-in delay-3">
-        <div class="perf-title">Performance by Format</div>
-        <div class="perf-bars">
-          <div class="perf-bar-row">
-            <div class="perf-bar-label">Quick Relatable</div>
-            <div class="perf-bar-track"><div class="perf-bar-fill" data-pct="92"></div></div>
-            <div class="perf-bar-pct">92%</div>
-          </div>
-          <div class="perf-bar-row">
-            <div class="perf-bar-label">Talk-to-Camera</div>
-            <div class="perf-bar-track"><div class="perf-bar-fill" data-pct="78"></div></div>
-            <div class="perf-bar-pct">78%</div>
-          </div>
-          <div class="perf-bar-row">
-            <div class="perf-bar-label">Vlog Montage</div>
-            <div class="perf-bar-track"><div class="perf-bar-fill" data-pct="65"></div></div>
-            <div class="perf-bar-pct">65%</div>
-          </div>
-          <div class="perf-bar-row">
-            <div class="perf-bar-label">Punchy Skit</div>
-            <div class="perf-bar-track"><div class="perf-bar-fill" data-pct="58"></div></div>
-            <div class="perf-bar-pct">58%</div>
-          </div>
-          <div class="perf-bar-row">
-            <div class="perf-bar-label">Interview Series</div>
-            <div class="perf-bar-track"><div class="perf-bar-fill" data-pct="44"></div></div>
-            <div class="perf-bar-pct">44%</div>
-          </div>
-        </div>
-        <p style="font-size:0.72rem;color:var(--text-dim);margin-top:24px;">* Relative performance index based on average views per format. Update these values in metrics.html when you have exact data.</p>
-      </div>
+      <!-- Engagement Galleries: Instagram / TikTok / LinkedIn -->
+      <div class="fade-in delay-3" style="margin-top:24px;">
+        <h2 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text);margin:0 0 24px;">Engagement Snapshots</h2>
 
-      <!-- TikTok Per-channel breakdown -->
-      <div class="fade-in delay-3" style="margin-top:48px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
-          <span style="font-size:1.3rem;">🎵</span>
-          <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin:0;">TikTok — Per Account</h2>
-        </div>
-        <div class="metrics-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
+        <div class="engagement-gallery" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:28px;">
 
-          <div class="metric-card" style="text-align:left;gap:0;">
-            <a href="https://www.tiktok.com/@harry.haries" target="_blank" rel="noopener" style="font-size:0.8rem;font-weight:700;color:var(--accent);text-decoration:none;display:inline-block;margin-bottom:12px;">@harry.haries ↗</a>
-            <div style="font-size:0.72rem;color:var(--text-dim);margin-bottom:16px;">Jul – Sep 2025</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">1.2M</div><div style="font-size:0.72rem;color:var(--text-dim);">Views</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">97K</div><div style="font-size:0.72rem;color:var(--text-dim);">Likes</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">27K</div><div style="font-size:0.72rem;color:var(--text-dim);">Shares</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">1,350</div><div style="font-size:0.72rem;color:var(--text-dim);">Comments</div></div>
+          <!-- INSTAGRAM COLUMN -->
+          <div>
+            <div style="text-align:center;margin-bottom:18px;">
+              <div style="font-size:0.78rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2px;">Engagement on</div>
+              <div style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);">Instagram</div>
+            </div>
+
+            <!-- 4:3 handle/profile card -->
+            <div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);margin-bottom:10px;">
+              <img src="ig-profile-card.jpg" alt="Instagram profile @harry.haries" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            </div>
+
+            <!-- 9:16 stat screenshots -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <div style="aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);">
+                <img src="ig-stat-1.jpg" alt="Instagram analytics screenshot 1" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+              <div style="aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);">
+                <img src="ig-stat-2.jpg" alt="Instagram analytics screenshot 2" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+              <div style="aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);">
+                <img src="ig-stat-3.jpg" alt="Instagram analytics screenshot 3" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+              <div style="aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);">
+                <img src="ig-stat-4.jpg" alt="Instagram analytics screenshot 4" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
             </div>
           </div>
 
-          <div class="metric-card" style="text-align:left;gap:0;">
-            <a href="https://www.tiktok.com/@hieuvu.haries" target="_blank" rel="noopener" style="font-size:0.8rem;font-weight:700;color:var(--accent);text-decoration:none;display:inline-block;margin-bottom:12px;">@hieuvu.haries ↗</a>
-            <div style="font-size:0.72rem;color:var(--text-dim);margin-bottom:16px;">Feb 3 – May 19</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">716K</div><div style="font-size:0.72rem;color:var(--text-dim);">Post Views</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">62K</div><div style="font-size:0.72rem;color:var(--text-dim);">Likes</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">5,522</div><div style="font-size:0.72rem;color:var(--text-dim);">Shares</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">15K</div><div style="font-size:0.72rem;color:var(--text-dim);">Profile Views</div></div>
+          <!-- TIKTOK COLUMN -->
+          <div>
+            <div style="text-align:center;margin-bottom:18px;">
+              <div style="font-size:0.78rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2px;">Engagement on</div>
+              <div style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);">TikTok</div>
+            </div>
+
+            <!-- 4:3 handle/profile card -->
+            <div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);margin-bottom:10px;">
+              <img src="tiktok-profile-card.jpg" alt="TikTok profile @harry.haries" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            </div>
+
+            <!-- 9:16 stat screenshots -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <div style="aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);">
+                <img src="tiktok-stat-1.jpg" alt="TikTok analytics screenshot 1" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+              <div style="aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);">
+                <img src="tiktok-stat-2.jpg" alt="TikTok analytics screenshot 2" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+              <div style="aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);">
+                <img src="tiktok-stat-3.jpg" alt="TikTok analytics screenshot 3" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+              <div style="aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border);">
+                <img src="tiktok-stat-4.jpg" alt="TikTok analytics screenshot 4" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
             </div>
           </div>
 
-          <div class="metric-card" style="text-align:left;gap:0;">
-            <a href="https://www.tiktok.com/@harry.insydney" target="_blank" rel="noopener" style="font-size:0.8rem;font-weight:700;color:var(--accent);text-decoration:none;display:inline-block;margin-bottom:12px;">@harry.insydney ↗</a>
-            <div style="font-size:0.72rem;color:var(--text-dim);margin-bottom:16px;">Nov 2025 – Feb 2026 · Arrowster Collab</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">2,898</div><div style="font-size:0.72rem;color:var(--text-dim);">Total Followers</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">2,591</div><div style="font-size:0.72rem;color:var(--text-dim);">Net New Followers</div></div>
+          <!-- LINKEDIN COLUMN (placeholder) -->
+          <div>
+            <div style="text-align:center;margin-bottom:18px;">
+              <div style="font-size:0.78rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2px;">Engagement on</div>
+              <div style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);">LinkedIn</div>
             </div>
-          </div>
 
-        </div>
-      </div>
-
-      <!-- Instagram Per-channel breakdown -->
-      <div class="fade-in delay-3" style="margin-top:48px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
-          <span style="font-size:1.3rem;">📸</span>
-          <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin:0;">Instagram — Per Account</h2>
-          <span style="font-size:0.7rem;color:var(--text-dim);background:var(--bg-2);padding:3px 10px;border-radius:100px;margin-left:4px;">Apr 22 – May 21</span>
-        </div>
-        <div class="metrics-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
-
-          <div class="metric-card" style="text-align:left;gap:0;">
-            <a href="https://www.instagram.com/_harry.haries_/" target="_blank" rel="noopener" style="font-size:0.8rem;font-weight:700;color:#c13584;text-decoration:none;display:inline-block;margin-bottom:12px;">@_harry.haries_ ↗</a>
-            <div style="font-size:0.72rem;color:var(--text-dim);margin-bottom:16px;">Apr 22 – May 21</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">4.0M</div><div style="font-size:0.72rem;color:var(--text-dim);">Views</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">297.2K</div><div style="font-size:0.72rem;color:var(--text-dim);">Interactions</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">1.7K</div><div style="font-size:0.72rem;color:var(--text-dim);">New Followers</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">60</div><div style="font-size:0.72rem;color:var(--text-dim);">Content Shared</div></div>
+            <!-- 4:3 handle/profile card placeholder -->
+            <div style="aspect-ratio:4/3;border-radius:14px;background:var(--bg-2);border:1.5px dashed var(--border-mid);margin-bottom:10px;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:0.72rem;color:var(--text-dim);text-align:center;padding:0 12px;">Profile card<br>coming soon</span>
             </div>
-          </div>
 
-          <div class="metric-card" style="text-align:left;gap:0;">
-            <a href="https://www.instagram.com/hieuvu.haries/" target="_blank" rel="noopener" style="font-size:0.8rem;font-weight:700;color:#c13584;text-decoration:none;display:inline-block;margin-bottom:12px;">@hieuvu.haries ↗</a>
-            <div style="font-size:0.72rem;color:var(--text-dim);margin-bottom:16px;">Apr 6 – May 5</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">138.0K</div><div style="font-size:0.72rem;color:var(--text-dim);">Views</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">9.1K</div><div style="font-size:0.72rem;color:var(--text-dim);">Interactions</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">592</div><div style="font-size:0.72rem;color:var(--text-dim);">New Followers</div></div>
-              <div><div style="font-size:1.2rem;font-weight:800;color:var(--text);">20</div><div style="font-size:0.72rem;color:var(--text-dim);">Content Shared</div></div>
+            <!-- 9:16 stat screenshot placeholder -->
+            <div style="aspect-ratio:9/16;border-radius:14px;background:var(--bg-2);border:1.5px dashed var(--border-mid);display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:0.72rem;color:var(--text-dim);text-align:center;padding:0 16px;">LinkedIn analytics<br>screenshot coming soon</span>
             </div>
           </div>
 
