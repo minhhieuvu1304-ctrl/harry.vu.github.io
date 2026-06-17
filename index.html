@@ -1,51 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harry Vu — Content Creator & UGC Specialist</title>
-  <meta name="description" content="Harry Vu: TikTok content creator, UGC specialist, and student-oriented community builder with 5M+ views." />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Harry Vu — Content Creator & UGC Specialist</title>
+<meta name="description" content="Harry Vu: TikTok & Instagram content creator, UGC specialist, and student-oriented community builder with 10M+ views." />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* ─── LAYOUT OVERRIDES: wider, breathes horizontally ─── */
+  :root {
+    --max-w: 1280px;
+    --hero-pad: 0 5vw;
+  }
+
+  .nav__inner {
+    max-width: var(--max-w);
+    padding: 0 5vw;
+  }
+
+  /* ─── HERO: two-column split ─── */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--nav-h) + 3rem) 5vw 4rem;
+    box-sizing: border-box;
+  }
+
+  .hero__content {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    grid-template-rows: auto;
+    column-gap: 6rem;
+    align-items: center;
+  }
+
+  /* Left column spans all rows */
+  .hero__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Right column: photo */
+  .hero__photo-col {
+    grid-row: 1 / span 4;
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .hero__photo-wrap {
+    position: relative;
+    width: 380px;
+    height: 460px;
+    border-radius: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .hero__photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  /* Subtle accent border glow */
+  .hero__photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    box-shadow: inset 0 0 0 2px rgba(124,110,245,0.25);
+    pointer-events: none;
+  }
+
+  /* Decorative accent blob behind photo */
+  .hero__photo-blob {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(124,110,245,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -50%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* ─── NAME ─── */
+  .hero__name {
+    font-size: clamp(3.8rem, 6.5vw, 7rem);
+    line-height: 1;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .hero__name span {
+    color: var(--accent);
+  }
+
+  /* ─── TAGLINE ─── */
+  .hero__tagline {
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    color: var(--text-muted, #6b6860);
+    letter-spacing: 0.04em;
+    margin: 0;
+  }
+
+  /* ─── BIO ─── */
+  .hero__bio {
+    font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+    line-height: 1.7;
+    max-width: 560px;
+    color: var(--text);
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  /* ─── ACTION BUTTONS ─── */
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .hero__actions .btn {
+    white-space: nowrap;
+  }
+
+  /* ─── STATS STRIP: 4 items ─── */
+  .stats-strip {
+    display: flex;
+    gap: 0;
+    flex-wrap: nowrap;
+    border-top: 1px solid rgba(26,24,24,0.1);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .stat {
+    flex: 1;
+    padding-right: 2rem;
+    border-right: 1px solid rgba(26,24,24,0.1);
+    margin-right: 2rem;
+  }
+
+  .stat:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .stat__number {
+    font-family: 'Clash Display', sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .stat__label {
+    font-size: 0.75rem;
+    color: var(--text-muted, #6b6860);
+    margin-top: 0.35rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ─── RESPONSIVE: collapse to single column below 900px ─── */
+  @media (max-width: 900px) {
+    .hero {
+      padding: calc(var(--nav-h) + 2rem) 5vw 3rem;
+    }
+
+    .hero__content {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .hero__photo-col {
+      grid-row: auto;
+      grid-column: 1;
+      justify-content: center;
+      order: -1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__photo-wrap {
+      width: 260px;
+      height: 320px;
+    }
+
+    .hero__name {
+      white-space: normal;
+    }
+
+    .stats-strip {
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .stat {
+      flex: 1 1 40%;
+      border-right: none;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .hero__actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero__actions .btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  /* ─── FOOTER: wider ─── */
+  .footer__inner {
+    max-width: var(--max-w);
+    padding: 0 5vw;
+    margin: 0 auto;
+  }
+</style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo">Harry<span>.</span></a>
-      <ul class="nav__links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="partnerships.html">Partnerships</a></li>
-        <li><a href="metrics.html">Metrics</a></li>
-        <li><a href="contact.html" class="nav__cta">Contact</a></li>
-      </ul>
-      <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-  <div class="nav__mobile">
-    <a href="index.html">Home</a><a href="portfolio.html">Portfolio</a>
-    <a href="partnerships.html">Partnerships</a><a href="metrics.html">Metrics</a>
-    <a href="contact.html">Contact →</a>
-  </div>
 
-  <section class="hero">
-    <div class="hero__bg"></div>
-    <div class="hero__content">
-      <div class="hero__eyebrow fade-in">
-        <span class="hero__eyebrow-dot"></span>
-        Available for collaborations
-      </div>
-      <h1 class="hero__name fade-in delay-1">Harry<br><span>Vu.</span></h1>
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">Harry<span>.</span></a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="partnerships.html">Partnerships</a></li>
+      <li><a href="metrics.html">Metrics</a></li>
+      <li><a href="contact.html" class="nav__cta">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="nav__mobile">
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="partnerships.html">Partnerships</a>
+  <a href="metrics.html">Metrics</a>
+  <a href="contact.html">Contact →</a>
+</div>
+
+<section class="hero">
+  <div class="hero__bg"></div>
+
+  <div class="hero__content">
+
+    <!-- LEFT: all text content -->
+    <div class="hero__left">
+
+      <h1 class="hero__name fade-in delay-1">Harry <span>Vu.</span></h1>
+
       <p class="hero__tagline fade-in delay-2">Content Creator &nbsp;·&nbsp; UGC Specialist &nbsp;·&nbsp; Storyteller</p>
+
+      <p class="hero__bio fade-in delay-3">
+        A full-ride scholar from USYD, who creating content that connects across cultures from Sydney to LA. With 10M+ views across three accounts, I specialise in relatable storytelling, UGC production, and brand-aligned content for student, lifestyle, and education niches.
+      </p>
+
       <div class="hero__actions fade-in delay-3">
+        <a href="metrics.html" class="btn btn--primary">
+          View My Analytics
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="partnerships.html" class="btn btn--primary">
+          Brand Partnerships
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
         <a href="portfolio.html" class="btn btn--primary">
           View My Work
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="contact.html" class="btn btn--ghost">Contact</a>
       </div>
-      <p class="hero__bio fade-in delay-4">
-        A full-ride scholar from USYD, who creating content that connects across cultures from Sydney to LA. With 10M+ views across three accounts, I specialise in relatable storytelling, UGC production, and brand-aligned content for student, lifestyle, and education niches.
-      </p>
+
+      <!-- Stats: Total Views / Followers / Sponsorships / UGC Deals -->
       <div class="stats-strip fade-in delay-4">
         <div class="stat">
           <div class="stat__number" data-count="10" data-suffix="M+">10M+</div>
@@ -56,20 +307,38 @@
           <div class="stat__label">Followers</div>
         </div>
         <div class="stat">
-          <div class="stat__number" data-count="8" data-suffix="">4</div>
-          <div class="stat__label">Brand Deals</div>
+          <div class="stat__number" data-count="7" data-suffix="+">7+</div>
+          <div class="stat__label">Sponsorships</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number" data-count="4" data-suffix="">4</div>
+          <div class="stat__label">UGC Deals</div>
+        </div>
+      </div>
+
+    </div><!-- /hero__left -->
+
+    <!-- RIGHT: photo -->
+    <div class="hero__photo-col fade-in delay-2">
+      <div style="position:relative;">
+        <div class="hero__photo-blob"></div>
+        <div class="hero__photo-wrap">
+          <img src="harry-photo.jpg" alt="Harry Vu" />
         </div>
       </div>
     </div>
-  </section>
 
-  <footer>
-    <div class="footer__inner">
-      <span class="footer__logo">Harry<span>.</span></span>
-      <span class="footer__copy">© <span id="yr"></span> Harry Vu. All rights reserved.</span>
-    </div>
-  </footer>
-  <script src="main.js"></script>
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  </div><!-- /hero__content -->
+</section>
+
+<footer>
+  <div class="footer__inner">
+    <span class="footer__logo">Harry<span>.</span></span>
+    <span class="footer__copy">© <span id="yr"></span> Harry Vu. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
