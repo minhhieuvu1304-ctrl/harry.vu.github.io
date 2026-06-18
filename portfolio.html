@@ -5,6 +5,168 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio — Harry Vu</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Showcase section layout: rotated label + 4-card row + summary line ── */
+    .showcase {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      column-gap: 28px;
+      margin-bottom: 72px;
+    }
+
+    .showcase__label {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--text);
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: -0.01em;
+    }
+
+    .showcase__body { min-width: 0; }
+
+    .showcase__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .showcase-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.09);
+    }
+
+    .showcase-card__thumb {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      background: linear-gradient(165deg, #cfe8fb 0%, #eaf6ff 55%, #f3fbf4 100%);
+      overflow: hidden;
+    }
+
+    /* Decorative cloud + hill, mirroring the reference mood board */
+    .showcase-card__cloud {
+      position: absolute;
+      top: 16%;
+      left: 14%;
+      width: 46%;
+      height: 22%;
+      background: #fff;
+      border-radius: 100px;
+      opacity: 0.95;
+      filter: blur(0.2px);
+    }
+    .showcase-card__cloud::before,
+    .showcase-card__cloud::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+    }
+    .showcase-card__cloud::before {
+      width: 55%; height: 130%;
+      top: -45%; left: 8%;
+    }
+    .showcase-card__cloud::after {
+      width: 40%; height: 100%;
+      top: -25%; left: 48%;
+    }
+
+    .showcase-card__hill {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 38%;
+      background: #6e9b1f;
+      border-radius: 50% 50% 0 0 / 70% 70% 0 0;
+      transform: scaleX(1.3);
+    }
+    .showcase-card__hill::before {
+      content: '';
+      position: absolute;
+      top: -10%; left: -10%; right: -10%;
+      height: 60%;
+      background: #9cc24a;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      opacity: 0.8;
+    }
+
+    .showcase-card__play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0);
+      transition: background 0.2s;
+    }
+    .showcase-card:hover .showcase-card__play { background: rgba(0,0,0,0.18); }
+
+    .showcase-card__play-btn {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: scale(0.8);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .showcase-card:hover .showcase-card__play-btn { opacity: 1; transform: scale(1); }
+    .showcase-card__play-btn svg { width: 15px; height: 15px; margin-left: 2px; }
+
+    .showcase-card__caption {
+      padding: 12px 12px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .showcase-card__subcaption {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .showcase__summary {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-align: center;
+      line-height: 1.5;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 760px) {
+      .showcase { grid-template-columns: 1fr; }
+      .showcase__label {
+        writing-mode: horizontal-tb;
+        transform: none;
+        justify-content: flex-start;
+        margin-bottom: 14px;
+        font-size: 1.3rem;
+      }
+      .showcase__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
 
@@ -15,7 +177,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="partnerships.html">Partnerships</a></li>
-        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="metrics.html">Analytics</a></li>
         <li><a href="contact.html" class="nav__cta">Contact Me</a></li>
       </ul>
       <button class="nav__hamburger" aria-label="Menu">
@@ -27,7 +189,7 @@
     <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="partnerships.html">Partnerships</a>
-    <a href="metrics.html">Metrics</a>
+    <a href="metrics.html">Analytics</a>
     <a href="contact.html">Contact →</a>
   </div>
 
@@ -38,438 +200,151 @@
       <span class="label fade-in">Work</span>
       <h1 class="section-title fade-in delay-1">Video Portfolio</h1>
       <p class="section-sub fade-in delay-2">
-        Browse by format or niche. All content shot in TikTok-native 9:16 ratio.
+        The-all-in-one-package that you need for an adaptive, viral content creator
       </p>
 
-      <div class="filter-bar fade-in delay-2">
-        <div class="filter-group">
-          <div class="filter-group__label">By Format</div>
-          <div class="filter-tabs">
-            <button class="filter-tab active" data-filter-format="all">All Formats</button>
-            <button class="filter-tab" data-filter-format="talk-to-camera">Talk-to-Camera</button>
-            <button class="filter-tab" data-filter-format="quick-relatable">Quick Relatable</button>
-            <button class="filter-tab" data-filter-format="editorial-skit">Editorial Skit</button>
-            <button class="filter-tab" data-filter-format="vlog-montage">Vlog Montage</button>
-            <button class="filter-tab" data-filter-format="interview">Interview Series</button>
+      <!-- ───────────────────────── SECTION 1: HIGHLIGHT VIDEOS ───────────────────────── -->
+      <div class="showcase fade-in delay-2">
+        <div class="showcase__label">highlight videos</div>
+        <div class="showcase__body">
+          <div class="showcase__grid">
+
+            <a href="https://www.tiktok.com/@harry.haries/video/7628461501363342610" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
+              </div>
+              <div class="showcase-card__caption">Study abroad journey</div>
+            </a>
+
+            <a href="https://www.instagram.com/p/DXGk677DIpA/" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
+              </div>
+              <div class="showcase-card__caption">Motivational edits</div>
+            </a>
+
+            <a href="https://www.instagram.com/hieuvu.haries/p/DYLwGwNEvHV/" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
+              </div>
+              <div class="showcase-card__caption">My backstory (for Vietnamese audience)</div>
+            </a>
+
+            <a href="https://www.instagram.com/p/DYTp-9hMLh5/" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
+              </div>
+              <div class="showcase-card__caption">Fun, quick entertaining idea</div>
+            </a>
+
           </div>
-        </div>
-        <div class="filter-group">
-          <div class="filter-group__label">By Niche</div>
-          <div class="filter-tabs">
-            <button class="filter-tab active" data-filter-niche="all">All Niches</button>
-            <button class="filter-tab" data-filter-niche="student-advice">Student Advice</button>
-            <button class="filter-tab" data-filter-niche="intl-student">International Student Life</button>
-            <button class="filter-tab" data-filter-niche="sydney">Sydney</button>
-            <button class="filter-tab" data-filter-niche="los-angeles">Los Angeles</button>
-           <button class="filter-tab" data-filter-niche="professional-development" style="border-color: #4a90d9; color: #4a90d9;">Professional Development</button>
-           <button class="filter-tab" data-filter-niche="instagram">Instagram</button>
-          </div>
+          <p class="showcase__summary">My most viral work on my own social media channels, with varying formats.</p>
         </div>
       </div>
 
-      <div class="video-grid">
+      <!-- ───────────────────────── SECTION 2: UGC VIDEOS ───────────────────────── -->
+      <div class="showcase fade-in delay-3">
+        <div class="showcase__label">UGC videos</div>
+        <div class="showcase__body">
+          <div class="showcase__grid">
 
-        <!-- Card TOP-1 — My journey going global (HIGHEST PERFORMING) -->
-        <div class="video-card fade-in" data-format="vlog-montage" data-niche="intl-student" style="position:relative;">
-          <div style="position:absolute;top:10px;left:10px;z-index:2;background:var(--accent);color:#fff;font-size:0.65rem;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:0.04em;">🏆 Top Performing</div>
-          <div class="video-card__thumb">
-            <img src="my-journey-going-global.jpg" alt="My journey going global" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+            <a href="https://www.instagram.com/reel/DYd9jgZhM0G/" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
               </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">My journey going global</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Vlog Montage</span>
-              <span class="tag tag--niche">Intl. Student</span>
-            </div>
-          </div>
-          <a href="https://www.instagram.com/reel/DXGk677DIpA/" target="_blank" rel="noopener" class="video-card__watch">Watch on Instagram ↗</a>
-        </div>
+              <div class="showcase-card__caption">Brand partnership<div class="showcase-card__subcaption">drk000</div></div>
+            </a>
 
-        <!-- Card TOP-2 — Making $2000 in 2 days P1 -->
-        <div class="video-card fade-in delay-1" data-format="editorial-skit" data-niche="professional-development">
-          <div class="video-card__thumb">
-            <img src="making-2000-p1.jpg" alt="Making $2000 in 2 days (P1)" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+            <a href="https://www.instagram.com/p/DYid9-5TFFi/" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
               </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Making $2000 in 2 days (P1)</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Editorial Skit</span>
-              <span class="tag tag--niche" style="background: rgba(74,144,217,0.15); color: #2e72b8;">Professional Development</span>
-            </div>
-          </div>
-          <a href="https://www.instagram.com/reel/DXvnBvqMr4Z/" target="_blank" rel="noopener" class="video-card__watch">Watch on Instagram ↗</a>
-        </div>
+              <div class="showcase-card__caption">Brand partnership<div class="showcase-card__subcaption">Liftoff</div></div>
+            </a>
 
-        <!-- Card TOP-3 — Making $2000 in 2 days P2 -->
-        <div class="video-card fade-in delay-2" data-format="editorial-skit" data-niche="professional-development">
-          <div class="video-card__thumb">
-            <img src="making-2000-p2.jpg" alt="Making $2000 in 2 days (P2)" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+            <a href="https://www.instagram.com/p/DZYgpRQzYct/" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
               </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Making $2000 in 2 days (P2)</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Editorial Skit</span>
-              <span class="tag tag--niche" style="background: rgba(74,144,217,0.15); color: #2e72b8;">Professional Development</span>
-            </div>
-          </div>
-          <a href="https://www.instagram.com/reel/DXyAgNJM8sB/" target="_blank" rel="noopener" class="video-card__watch">Watch on Instagram ↗</a>
-        </div>
+              <div class="showcase-card__caption">Brand partnership<div class="showcase-card__subcaption">creao.ai</div></div>
+            </a>
 
-        <!-- Card 1 — Insightful-for-int-students.jpg -->
-        <div class="video-card fade-in" data-format="talk-to-camera" data-niche="intl-student">
-          <div class="video-card__thumb">
-            <img src="Insightful-for-int-students.jpg" alt="Insights all international students relate to" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+            <a href="https://www.tiktok.com/@speak.with.harry/video/7647367824742075655" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
               </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Insights all international students relate to</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Talk-to-Camera</span>
-              <span class="tag tag--niche">Intl. Student</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7489395681350798597" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
+              <div class="showcase-card__caption">Brand partnership<div class="showcase-card__subcaption">Wellspoken</div></div>
+            </a>
 
-        <!-- Card 2 — Every-Frat-house.png -->
-        <div class="video-card fade-in delay-1" data-format="vlog-montage" data-niche="los-angeles">
-          <div class="video-card__thumb">
-            <img src="Every-Frat-house.png" alt="Exploring frat houses in USC" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
           </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Exchange Student in LA — Frat house adventure</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Vlog Montage</span>
-              <span class="tag tag--niche">Los Angeles</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7598071196864843015" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+          <p class="showcase__summary">More than 1M+ views generated in total in the last 30 days.</p>
         </div>
+      </div>
 
-        <!-- Card 3 — Adventure-to-LA.png -->
-        <div class="video-card fade-in delay-2" data-format="vlog-montage" data-niche="los-angeles">
-          <div class="video-card__thumb">
-            <img src="Adventure-to-LA.png" alt="Journey to LA" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Journey to LA</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Vlog Montage</span>
-              <span class="tag tag--niche">Los Angeles</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7593915490754415890" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
+      <!-- ───────────────────────── SECTION 3: FORMAT DIVERSITY ───────────────────────── -->
+      <div class="showcase fade-in delay-3" style="margin-bottom: 24px;">
+        <div class="showcase__label">format diversity</div>
+        <div class="showcase__body">
+          <div class="showcase__grid">
 
-        <!-- Card 4 — Genie.png -->
-        <div class="video-card fade-in" data-format="editorial-skit" data-niche="student-advice">
-          <div class="video-card__thumb">
-            <img src="Genie.png" alt="Entertaining skit with metaphorical lessons" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+            <a href="https://www.instagram.com/reel/DXyAgNJM8sB/" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
               </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Entertaining skit with metaphorical lessons</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Editorial Skit</span>
-              <span class="tag tag--niche">Student Advice</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7605497085558869255" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
+              <div class="showcase-card__caption">Storytelling</div>
+            </a>
 
-        <!-- Card 5 — Itv-students.jpg -->
-        <div class="video-card fade-in delay-1" data-format="interview" data-niche="sydney">
-          <div class="video-card__thumb">
-            <img src="Itv-students.jpg" alt="USYD: Which major is the hardest?" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+            <a href="https://www.tiktok.com/@harry.haries/video/7566416890642435346" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
               </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">USYD: Which major is the hardest?</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Interview Series</span>
-              <span class="tag tag--niche">Sydney</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7510192297280081170" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
+              <div class="showcase-card__caption">Relatable + funny</div>
+            </a>
 
-        <!-- Card 6 — 175-years.png -->
-        <div class="video-card fade-in delay-2" data-format="vlog-montage" data-niche="sydney">
-          <div class="video-card__thumb">
-            <img src="175-years.png" alt="USYD 175 years vlog" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+            <a href="https://www.instagram.com/reel/DZbyaUPB5Iz/" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
               </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">USYD "Be part of our 175 years" vlog</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Vlog Montage</span>
-              <span class="tag tag--niche">Sydney</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7562148718556826887" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
+              <div class="showcase-card__caption">Motivational edits</div>
+            </a>
 
-        <!-- Card 7 — USCelebrity.png -->
-        <div class="video-card fade-in" data-format="talk-to-camera" data-niche="los-angeles">
-          <div class="video-card__thumb">
-            <img src="USCelebrity.png" alt="USC celebrity experience" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
+            <a href="https://www.instagram.com/reel/DXBNZd2DN0K/" target="_blank" rel="noopener" class="showcase-card">
+              <div class="showcase-card__thumb">
+                <div class="showcase-card__cloud"></div>
+                <div class="showcase-card__hill"></div>
+                <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
               </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">USC(elebrity)</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Talk-to-Camera</span>
-              <span class="tag tag--niche">Los Angeles</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7612893065052704007" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
+              <div class="showcase-card__caption">Talk-to-camera</div>
+            </a>
 
-        <!-- Card 8 — Sydney-ers-relate.jpg -->
-        <div class="video-card fade-in delay-1" data-format="quick-relatable" data-niche="sydney">
-          <div class="video-card__thumb">
-            <img src="Sydney-ers-relate.jpg" alt="Average Sydney-er experience" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
           </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Average Sydney-er experience</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Quick Relatable</span>
-              <span class="tag tag--niche">Sydney</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7566416890642435346" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
+          <p class="showcase__summary">I don't just make viral videos, I adapt to any type that goes viral.</p>
         </div>
+      </div>
 
-        <!-- Card 9 — Itv-tutors.jpg -->
-        <div class="video-card fade-in delay-2" data-format="interview" data-niche="sydney">
-          <div class="video-card__thumb">
-            <img src="Itv-tutors.jpg" alt="Interviewing tutors and academics" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Interviewing Tutors and Academics</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Interview Series</span>
-              <span class="tag tag--niche">Sydney</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7541740487913311504" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
-
-        <!-- Card 10 — Try-new-sports.png -->
-        <div class="video-card fade-in" data-format="vlog-montage" data-niche="los-angeles">
-          <div class="video-card__thumb">
-            <img src="Try-new-sports.png" alt="Trying out every sport in USC" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Trying out every sport in USC — Part 4</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Vlog Montage</span>
-              <span class="tag tag--niche">Los Angeles</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7602874028755291399" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
-
-        <!-- Card 11 — Trying-Waymo.png -->
-        <div class="video-card fade-in delay-1" data-format="talk-to-camera" data-niche="los-angeles">
-          <div class="video-card__thumb">
-            <img src="Trying-Waymo.png" alt="Trying Waymo self-driving car" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">UGC: Trying Waymo</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Talk-to-Camera</span>
-              <span class="tag tag--niche">Los Angeles</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7618453085198765319" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
-
-        <!-- Card 12 — Sydney-int-students.png -->
-        <div class="video-card fade-in delay-2" data-format="quick-relatable" data-niche="intl-student">
-          <div class="video-card__thumb">
-            <img src="Sydney-int-students.png" alt="International students in Sydney" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">International students in Sydney</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Quick Relatable</span>
-              <span class="tag tag--niche">Intl. Student</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7578078307015527688" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
-
-        <!-- Card 13 — TikTok-Awards.png -->
-        <div class="video-card fade-in" data-format="vlog-montage" data-niche="sydney">
-          <div class="video-card__thumb">
-            <img src="TikTok-Awards.png" alt="TikTok Creator Awards 2025" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">TikTok Creator Awards 2025 Recap</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Vlog Montage</span>
-              <span class="tag tag--niche">Sydney</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7577361376671206674" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
-
-        <!-- Card 14 — New-year-resolution.png -->
-        <div class="video-card fade-in delay-1" data-format="talk-to-camera" data-niche="student-advice">
-          <div class="video-card__thumb">
-            <img src="New-year-resolution.png" alt="New year resolution hot take" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">New Year resolution: Hot take</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Talk-to-Camera</span>
-              <span class="tag tag--niche">Student Advice</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7588496106561080594" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
-
-        <!-- Card 15 — USYD-welcome-week-recap.jpg -->
-        <div class="video-card fade-in delay-2" data-format="vlog-montage" data-niche="sydney">
-          <div class="video-card__thumb">
-            <img src="USYD-welcome-week-recap.jpg" alt="USYD welcome week recap" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">USYD Welcome Week Recap</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Vlog Montage</span>
-              <span class="tag tag--niche">Sydney</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.haries/video/7562148718556826887" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
-<!-- Card: Loaf Market 1 — Growth-Reflection.PNG -->
-        <div class="video-card fade-in" data-format="talk-to-camera" data-niche="professional-development">
-          <div class="video-card__thumb">
-            <img src="Growth-Reflection.PNG" alt="1 billion views growth reflection" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">Growth reflection — Meeting Daniel Min</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Talk-to-Camera</span>
-              <span class="tag tag--niche" style="background: rgba(74,144,217,0.15); color: #2e72b8;">Professional Development</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.hustle/video/7624779505122479391" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
-
-        <!-- Card: Loaf Market 2 — Video-sample-LoafMarkets.PNG -->
-        <div class="video-card fade-in delay-1" data-format="talk-to-camera" data-niche="professional-development">
-          <div class="video-card__thumb">
-            <img src="Video-sample-LoafMarkets.PNG" alt="90 days content creation" />
-            <div class="video-card__play">
-              <div class="video-card__play-btn">
-                <svg viewBox="0 0 24 24" fill="var(--bg)"><path d="M6 4l14 8L6 20V4z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <div class="video-card__title">My Loaf Markets sample video</div>
-            <div class="video-card__tags">
-              <span class="tag tag--format">Talk-to-Camera</span>
-              <span class="tag tag--niche" style="background: rgba(74,144,217,0.15); color: #2e72b8;">Professional Development</span>
-            </div>
-          </div>
-          <a href="https://www.tiktok.com/@harry.hustle/video/7625173460569935134" target="_blank" rel="noopener" class="video-card__watch">Watch on TikTok ↗</a>
-        </div>
-      </div><!-- /video-grid -->
-    </div><!-- /container -->
+    </div>
   </section>
 
   <footer>
@@ -478,7 +353,6 @@
       <span class="footer__copy">© <span id="yr"></span> Harry Vu. All rights reserved.</span>
     </div>
   </footer>
-
   <script src="main.js"></script>
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
