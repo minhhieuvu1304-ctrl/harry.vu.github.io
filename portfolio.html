@@ -60,6 +60,16 @@
       overflow: hidden;
     }
 
+    /* Real thumbnail sits above the illustrated placeholder; if it 404s, onerror hides it and the placeholder shows through */
+    .showcase-card__thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
     /* Decorative cloud + hill, mirroring the reference mood board */
     .showcase-card__cloud {
       position: absolute;
@@ -144,14 +154,21 @@
       margin-top: 4px;
     }
 
-    .showcase__summary {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
+    .section-sub.portfolio-sub {
+      font-size: 1.15rem !important;
       font-weight: 500;
       color: var(--text-mid);
+      max-width: 720px;
+    }
+
+    .showcase__summary {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
       text-align: center;
       line-height: 1.5;
-      max-width: 640px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
@@ -199,7 +216,7 @@
 
       <span class="label fade-in">Work</span>
       <h1 class="section-title fade-in delay-1">Video Portfolio</h1>
-      <p class="section-sub fade-in delay-2">
+      <p class="section-sub portfolio-sub fade-in delay-2">
         The-all-in-one-package that you need for an adaptive, viral content creator
       </p>
 
@@ -211,6 +228,7 @@
 
             <a href="https://www.tiktok.com/@harry.haries/video/7628461501363342610" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="study-abroad-journey.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -220,6 +238,7 @@
 
             <a href="https://www.instagram.com/p/DXGk677DIpA/" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="motivational-edits-1.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -229,6 +248,7 @@
 
             <a href="https://www.instagram.com/hieuvu.haries/p/DYLwGwNEvHV/" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="backstory-vietnamese.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -238,6 +258,7 @@
 
             <a href="https://www.instagram.com/p/DYTp-9hMLh5/" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="fun-quick-entertaining.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -258,6 +279,7 @@
 
             <a href="https://www.instagram.com/reel/DYd9jgZhM0G/" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="ugc-drk000.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -267,6 +289,7 @@
 
             <a href="https://www.instagram.com/p/DYid9-5TFFi/" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="ugc-liftoff.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -276,6 +299,7 @@
 
             <a href="https://www.instagram.com/p/DZYgpRQzYct/" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="ugc-creao-ai.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -285,6 +309,7 @@
 
             <a href="https://www.tiktok.com/@speak.with.harry/video/7647367824742075655" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="ugc-wellspoken.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -305,6 +330,7 @@
 
             <a href="https://www.instagram.com/reel/DXyAgNJM8sB/" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="storytelling.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -314,6 +340,7 @@
 
             <a href="https://www.tiktok.com/@harry.haries/video/7566416890642435346" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="relatable-funny.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -323,6 +350,7 @@
 
             <a href="https://www.instagram.com/reel/DZbyaUPB5Iz/" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="motivational-edits-2.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
@@ -330,8 +358,9 @@
               <div class="showcase-card__caption">Motivational edits</div>
             </a>
 
-            <a href="https://www.instagram.com/reel/DXBNZd2DN0K/" target="_blank" rel="noopener" class="showcase-card">
+            <a href="https://www.instagram.com/reel/DVaRx61DCf0/" target="_blank" rel="noopener" class="showcase-card">
               <div class="showcase-card__thumb">
+                <img src="talk-to-camera.png" alt="" onerror="this.remove()" />
                 <div class="showcase-card__cloud"></div>
                 <div class="showcase-card__hill"></div>
                 <div class="showcase-card__play"><div class="showcase-card__play-btn"><svg viewBox="0 0 24 24" fill="var(--text)"><path d="M6 4l14 8L6 20V4z"/></svg></div></div>
