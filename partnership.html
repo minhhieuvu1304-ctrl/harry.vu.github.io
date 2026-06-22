@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Partnerships — Harry Vu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Section dividers ── */
+    .collab-section { margin-top: 56px; }
+    .collab-section__header { margin-bottom: 28px; }
+    .collab-section__title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0 0 4px;
+    }
+    .collab-section__sub {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .collab-divider {
+      height: 2px;
+      background: var(--bg-3);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    /* ── Card grid ── */
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── Base card ── */
+    .collab-card {
+      background: #fff;
+      border: 1px solid var(--border, #edeae2);
+      border-radius: 14px;
+      padding: 24px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .collab-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+    }
+
+    /* ── Logo ── */
+    .collab-card__logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--bg-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .collab-card__logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+    }
+
+    /* ── Category labels ── */
+    .collab-card__labels { display: flex; flex-direction: column; gap: 2px; }
+    .collab-card__category {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+    .collab-card__subcategory {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ── Name & desc ── */
+    .collab-card__name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .collab-card__desc {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+      margin: 0;
+      flex: 1;
+    }
+
+    /* ── Stat pill for UGC cards ── */
+    .collab-card__stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124,110,245,0.09);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 100px;
+      margin-top: 4px;
+      width: fit-content;
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Harry<span>.</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="partnerships.html">Partnerships</a></li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="contact.html" class="nav__cta">Contact</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav__mobile">
+    <a href="index.html">Home</a><a href="portfolio.html">Portfolio</a>
+    <a href="partnerships.html">Partnerships</a><a href="metrics.html">Metrics</a>
+    <a href="contact.html">Contact →</a>
+  </div>
+
+  <div style="padding-top: var(--nav-h);"></div>
+  <section class="section">
+    <div class="container">
+
+      <span class="label fade-in">Collaborations</span>
+      <h1 class="section-title fade-in delay-1">Brands I've Created For</h1>
+
+      <!-- ═══════════════════════════════════════
+           1. SPONSORED PARTNERSHIPS
+      ═══════════════════════════════════════ -->
+      <div class="collab-section fade-in delay-2">
+        <div class="collab-section__header">
+          <div class="collab-section__title">Sponsored Partnerships</div>
+        </div>
+
+        <!-- Gifting -->
+        <div class="collab-section__sub" style="margin-bottom:16px;">Gifting</div>
+        <div class="collab-divider"></div>
+        <div class="collab-grid">
+
+          <!-- The Good Molecule -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="the-good-molecule.jpg" alt="The Good Molecule" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Gifting · Skincare</span>
+            </div>
+            <div class="collab-card__name">The Good Molecule</div>
+            <p class="collab-card__desc">700K+ Instagram followers. Skincare made affordable for everyone — high-quality actives at prices that don't gatekeep good skin.</p>
+          </div>
+
+          <!-- Monster Energy -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="monster-energy.jpg" alt="Monster Energy" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Gifting · Energy Drink</span>
+            </div>
+            <div class="collab-card__name">Monster Energy</div>
+            <p class="collab-card__desc">One of the world's most iconic energy drink brands, fuelling athletes, gamers, and creators with high-performance energy.</p>
+          </div>
+
+          <!-- Netflix -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="netflix.jpg" alt="Netflix" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Gifting · Entertainment</span>
+            </div>
+            <div class="collab-card__name">Netflix</div>
+            <p class="collab-card__desc">The world's leading streaming platform — bringing stories, series, and films to over 260 million subscribers globally.</p>
+          </div>
+
+          <!-- Barebells -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="barebells.jpg" alt="Barebells" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Gifting · Food & Fitness</span>
+            </div>
+            <div class="collab-card__name">Barebells</div>
+            <p class="collab-card__desc">The number one high-protein snack brand — making nutrition taste too good to be healthy.</p>
+          </div>
+
+          <!-- Olipop -->
+          <div class="collab-card">
+            <div class="collab-card__logo" style="background:#f5e6c8;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:1.4rem;font-weight:900;color:#c47c2b;font-family:serif;">O</span>
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Gifting · Beverages</span>
+            </div>
+            <div class="collab-card__name">Olipop</div>
+            <p class="collab-card__desc">A new kind of soda with prebiotic fibre and botanicals — all the nostalgia of classic soda with benefits your gut actually loves.</p>
+          </div>
+
+          <!-- Amber Student Housing -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="amber-student-housing.jpg" alt="Amber Student Housing" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Gifting · Student Housing</span>
+            </div>
+            <div class="collab-card__name">Amber Student Housing</div>
+            <p class="collab-card__desc">Global student accommodation platform helping international students find verified housing near top universities worldwide.</p>
+          </div>
+
+        </div><!-- /gifting grid -->
+
+        <!-- Sponsored Content -->
+        <div class="collab-section__sub" style="margin-top:40px;margin-bottom:16px;">Sponsored Content</div>
+        <div class="collab-divider"></div>
+        <div class="collab-grid">
+
+          <!-- Drk000 -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="drk000-energy-drink.jpg" alt="Drk000 Energy Drink" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Sponsored Content · Energy Drink</span>
+            </div>
+            <div class="collab-card__name">Drk000</div>
+            <p class="collab-card__desc">LA's first herbal energy drink — clean energy rooted in natural ingredients, built for the city that never slows down.</p>
+          </div>
+
+          <!-- Dittolists -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="ditto-lists.jpg" alt="Dittolists" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Sponsored Content · Social Media</span>
+            </div>
+            <div class="collab-card__name">Dittolists</div>
+            <p class="collab-card__desc">A social media start-up made for sharing and debriefing with friends — think ranked lists, shared takes, and group reactions.</p>
+          </div>
+
+          <!-- Tone by AMP -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="tone-by-amp.jpg" alt="Tone by AMP" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Sponsored Content · Beauty</span>
+            </div>
+            <div class="collab-card__name">Tone</div>
+            <p class="collab-card__desc">Beauty brand managed by AMP — the creator collective behind Kai Cenat, Duke Dennis, Fanum, Agent00, ImDavisss, and Chrisnxtdoor.</p>
+          </div>
+
+          <!-- LinkedUp -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="linked-up.jpg" alt="LinkedUp" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Sponsored Content · Community</span>
+            </div>
+            <div class="collab-card__name">LinkedUp</div>
+            <p class="collab-card__desc">LA's premier LinkedIn creator community group — connecting ambitious professionals through content, events, and peer accountability.</p>
+          </div>
+
+          <!-- AIESEC -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="aiesec-logo.png" alt="AIESEC" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">Sponsored Partnerships</span>
+              <span class="collab-card__subcategory">Sponsored Content · Youth Organisation</span>
+            </div>
+            <div class="collab-card__name">AIESEC</div>
+            <p class="collab-card__desc">Created sponsored content promoting AIESEC's "Australia's Largest Lesson" initiative, targeting university-aged audiences in Sydney through organic TikTok reach.</p>
+          </div>
+
+        </div><!-- /sponsored content grid -->
+      </div><!-- /sponsored partnerships section -->
+
+
+      <!-- ═══════════════════════════════════════
+           2. UGC DEALS
+      ═══════════════════════════════════════ -->
+      <div class="collab-section fade-in delay-3">
+        <div class="collab-section__header">
+          <div class="collab-section__title">UGC Deals</div>
+        </div>
+        <div class="collab-section__sub" style="margin-bottom:16px;">Brands I Worked With</div>
+        <div class="collab-divider"></div>
+        <div class="collab-grid">
+
+          <!-- Creao AI -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="creao-ai.jpg" alt="Creao AI" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">UGC Deals</span>
+              <span class="collab-card__subcategory">AI</span>
+            </div>
+            <div class="collab-card__name">Creao AI</div>
+            <p class="collab-card__desc">Create your AI agent for any task to speed up your work pipeline — smarter automation built for modern creators and teams.</p>
+            <span class="collab-card__stat">📈 400K views · 200+ sign-ups in 14 days</span>
+          </div>
+
+          <!-- Liftoff -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="liftoff.jpg" alt="Liftoff" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">UGC Deals</span>
+              <span class="collab-card__subcategory">Software · Fitness</span>
+            </div>
+            <div class="collab-card__name">Liftoff</div>
+            <p class="collab-card__desc">Ranked gym tracking app so you can monitor your progress and compete with friends — fitness made social and measurable.</p>
+            <span class="collab-card__stat">📈 500K views in 40 days</span>
+          </div>
+
+          <!-- Wellspoken -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="wellspoken-app.jpg" alt="Wellspoken" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">UGC Deals</span>
+              <span class="collab-card__subcategory">Software · Education</span>
+            </div>
+            <div class="collab-card__name">Wellspoken</div>
+            <p class="collab-card__desc">Educational software applications designed to build communication skills and confidence for students in academic and professional settings.</p>
+          </div>
+
+          <!-- Dupe.com -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="dupe-logo.png" alt="Dupe.com" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">UGC Deals</span>
+              <span class="collab-card__subcategory">Retail · Lifestyle</span>
+            </div>
+            <div class="collab-card__name">Dupe.com</div>
+            <p class="collab-card__desc">Platform helping shoppers work around retail pricing — 7 videos per week driving product discovery through authentic UGC storytelling.</p>
+            <span class="collab-card__stat">💰 $150+ claimed since April 2025</span>
+          </div>
+
+          <!-- Arrowster -->
+          <div class="collab-card">
+            <div class="collab-card__logo">
+              <img src="arrowster-logo.png" alt="Arrowster" />
+            </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">UGC Deals</span>
+              <span class="collab-card__subcategory">Software · Education</span>
+            </div>
+            <div class="collab-card__name">Arrowster</div>
+            <p class="collab-card__desc">Connecting students with mentors via AI for study abroad support. Long-term partnership managing strategy, production, and publishing across a dedicated account.</p>
+            <span class="collab-card__stat">📈 800K views · 88K likes · 1,700 followers</span>
+          </div>
+
+        </div><!-- /ugc grid -->
+      </div><!-- /ugc section -->
+
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title fade-in" style="margin-bottom:16px;">Want to work together?</h2>
+      <p class="fade-in delay-1" style="color:var(--text-mid);margin-bottom:36px;max-width:420px;margin-left:auto;margin-right:auto;">I'm open to brand deals, UGC packages, and long-term creator partnerships.</p>
+      <a href="contact.html" class="btn btn--primary fade-in delay-2">Get in Touch →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer__inner">
+      <span class="footer__logo">Harry<span>.</span></span>
+      <span class="footer__copy">© <span id="yr"></span> Harry Vu. All rights reserved.</span>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
