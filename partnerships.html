@@ -54,8 +54,8 @@
 
     /* ── Logo ── */
     .collab-card__logo {
-      width: 52px;
-      height: 52px;
+      width: 56px;
+      height: 56px;
       border-radius: 12px;
       overflow: hidden;
       flex-shrink: 0;
@@ -67,7 +67,8 @@
     .collab-card__logo img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      padding: 4px;
     }
 
     /* ── Category labels ── */
@@ -118,39 +119,28 @@
       width: fit-content;
     }
 
-    /* ── Featured UGC card (Arrowster) ── */
-    .collab-card--featured {
-      grid-column: 1 / -1;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 20px;
-      padding: 28px;
-      background: linear-gradient(135deg, #f8f7ff 0%, #fff 100%);
-      border-color: rgba(124,110,245,0.2);
-    }
-    .collab-card--featured .collab-card__logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 14px;
-    }
-    .collab-card--featured .collab-card__body { flex: 1; min-width: 200px; }
-    .collab-card--featured .collab-card__name { font-size: 1.2rem; }
-    .collab-card--featured .collab-card__desc { font-size: 0.85rem; }
-    .collab-card--featured .collab-card__stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .featured-pill {
-      background: rgba(124,110,245,0.1);
-      color: var(--accent);
+    /* ── View content button ── */
+    .collab-card__view {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
       font-size: 0.72rem;
       font-weight: 700;
+      color: var(--accent);
+      background: rgba(124,110,245,0.08);
+      border: 1px solid rgba(124,110,245,0.2);
       padding: 5px 12px;
       border-radius: 100px;
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.15s ease, transform 0.15s ease;
     }
+    .collab-card__view:hover {
+      background: rgba(124,110,245,0.16);
+      transform: translateY(-1px);
+    }
+
   </style>
 </head>
 <body>
@@ -370,6 +360,7 @@
             <div class="collab-card__name">Creao AI</div>
             <p class="collab-card__desc">Create your AI agent for any task to speed up your work pipeline — smarter automation built for modern creators and teams.</p>
             <span class="collab-card__stat">📈 400K views · 200+ sign-ups in 14 days</span>
+            <a href="https://www.instagram.com/code.with.harry/" target="_blank" rel="noopener" class="collab-card__view">View content ↗</a>
           </div>
 
           <!-- Liftoff -->
@@ -384,6 +375,7 @@
             <div class="collab-card__name">Liftoff</div>
             <p class="collab-card__desc">Ranked gym tracking app so you can monitor your progress and compete with friends — fitness made social and measurable.</p>
             <span class="collab-card__stat">📈 500K views in 40 days</span>
+            <a href="https://www.instagram.com/harrygain.z/" target="_blank" rel="noopener" class="collab-card__view">View content ↗</a>
           </div>
 
           <!-- Wellspoken -->
@@ -397,41 +389,22 @@
             </div>
             <div class="collab-card__name">Wellspoken</div>
             <p class="collab-card__desc">Educational software applications designed to build communication skills and confidence for students in academic and professional settings.</p>
+            <a href="https://www.instagram.com/speaking.with.harry/" target="_blank" rel="noopener" class="collab-card__view">View content ↗</a>
           </div>
 
-          <!-- Dupe.com -->
+          <!-- Arrowster -->
           <div class="collab-card">
-            <div class="collab-card__logo">
-              <img src="dupe-logo.png" alt="Dupe.com" />
-            </div>
-            <div class="collab-card__labels">
-              <span class="collab-card__category">UGC Deals</span>
-              <span class="collab-card__subcategory">Retail · Lifestyle</span>
-            </div>
-            <div class="collab-card__name">Dupe.com</div>
-            <p class="collab-card__desc">Platform helping shoppers work around retail pricing — 7 videos per week driving product discovery through authentic UGC storytelling.</p>
-            <span class="collab-card__stat">💰 $150+ claimed since April 2025</span>
-          </div>
-
-          <!-- Arrowster — Featured -->
-          <div class="collab-card collab-card--featured">
             <div class="collab-card__logo">
               <img src="arrowster-logo.png" alt="Arrowster" />
             </div>
-            <div class="collab-card__body">
-              <div class="collab-card__labels">
-                <span class="collab-card__category">UGC Deals</span>
-                <span class="collab-card__subcategory">Software · Education — Long-Term · 2-Month Campaign + Ongoing</span>
-              </div>
-              <div class="collab-card__name" style="margin-top:8px;">Arrowster</div>
-              <p class="collab-card__desc" style="margin-top:6px;">Connecting students with mentors via AI for study abroad support. What began as a 2-week campaign turned into a long-term partnership — managing strategy, production, and publishing across a dedicated account, growing Arrowster's community from scratch with high-volume content across multiple formats.</p>
-              <div class="collab-card__stats-row">
-                <span class="featured-pill">800K+ views in 2-week launch</span>
-                <span class="featured-pill">88K+ likes</span>
-                <span class="featured-pill">1,700 new followers</span>
-                <span class="featured-pill">60+ content pieces</span>
-              </div>
+            <div class="collab-card__labels">
+              <span class="collab-card__category">UGC Deals</span>
+              <span class="collab-card__subcategory">Software · Education</span>
             </div>
+            <div class="collab-card__name">Arrowster</div>
+            <p class="collab-card__desc">Connecting students with mentors via AI for study abroad support. Long-term partnership managing strategy, production, and publishing across a dedicated account.</p>
+            <span class="collab-card__stat">📈 800K views · 1,700 followers</span>
+            <a href="https://www.tiktok.com/@harry.insydney" target="_blank" rel="noopener" class="collab-card__view">View content ↗</a>
           </div>
 
         </div><!-- /ugc grid -->
