@@ -124,27 +124,31 @@
     padding-right: 1.6rem;
   }
 
-  /* ── Stats: full width, after buttons ── */
+  /* ── Stats: squircle container matching button row ── */
   .hero__content .stats-strip {
     grid-column: 1 / -1;
     grid-row: 6;
     display: flex !important;
-    gap: 0 !important;
     flex-wrap: nowrap !important;
-    border-top: 1px solid rgba(26,24,24,0.1);
-    border-radius: 0 !important;
+    gap: 0 !important;
+    border: 1.5px solid rgba(26,24,24,0.12) !important;
+    border-radius: 100px !important;
     background: transparent !important;
-    padding: 1.5rem 0 0 !important;
+    padding: 0 !important;
     margin: 0 !important;
     box-shadow: none !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
 
   .hero__content .stats-strip .stat {
     flex: 1 !important;
-    padding: 0 2rem 0 0 !important;
-    margin: 0 2rem 0 0 !important;
-    border-right: 1px solid rgba(26,24,24,0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.1rem 1rem !important;
+    margin: 0 !important;
+    border-right: 1.5px solid rgba(26,24,24,0.12) !important;
     border-top: none !important;
     border-bottom: none !important;
     border-left: none !important;
@@ -152,17 +156,16 @@
     background: transparent !important;
     box-shadow: none !important;
     min-width: 0;
+    text-align: center;
   }
 
   .hero__content .stats-strip .stat:last-child {
     border-right: none !important;
-    margin-right: 0 !important;
-    padding-right: 0 !important;
   }
 
   .hero__content .stats-strip .stat__number {
     font-family: 'Clash Display', sans-serif;
-    font-size: clamp(1.7rem, 2.5vw, 2.5rem) !important;
+    font-size: clamp(1.4rem, 2.2vw, 2.1rem) !important;
     font-weight: 700;
     color: var(--accent);
     line-height: 1;
@@ -171,10 +174,10 @@
   }
 
   .hero__content .stats-strip .stat__label {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     color: var(--text-muted, #6b6860);
-    margin-top: 0.4rem;
-    letter-spacing: 0.05em;
+    margin-top: 0.35rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     font-weight: 500;
     white-space: nowrap;
@@ -229,7 +232,7 @@
     .hero__bio-row    { grid-column: 1; grid-row: auto; }
     .hero__divider    { grid-column: 1; grid-row: auto; }
     .hero__actions    { grid-column: 1; grid-row: auto; flex-wrap: wrap; }
-    .hero__content .stats-strip { grid-column: 1; grid-row: auto; flex-wrap: wrap !important; gap: 1.25rem !important; }
+    .hero__content .stats-strip { grid-column: 1; grid-row: auto; flex-wrap: wrap !important; border-radius: 20px !important; }
 
     .hero__photo-wrap {
       height: 280px;
@@ -240,11 +243,15 @@
     .hero__actions .btn--ghost { flex: 0 0 auto; }
 
     .hero__content .stats-strip .stat {
-      flex: 1 1 40% !important;
-      border-right: none !important;
-      margin-right: 0 !important;
-      padding-right: 0 !important;
+      flex: 1 1 50% !important;
+      border-right: 1.5px solid rgba(26,24,24,0.12) !important;
+      border-bottom: 1.5px solid rgba(26,24,24,0.12) !important;
+      margin: 0 !important;
     }
+    .hero__content .stats-strip .stat:nth-child(2) { border-right: none !important; }
+    .hero__content .stats-strip .stat:nth-child(3),
+    .hero__content .stats-strip .stat:nth-child(4) { border-bottom: none !important; }
+    .hero__content .stats-strip .stat:nth-child(4) { border-right: none !important; }
 
     .hero__name { white-space: normal; }
   }
@@ -307,7 +314,7 @@
     <!-- COL 2, ROW 3: Bio -->
     <div class="hero__bio-row fade-in delay-2">
       <p class="hero__bio">
-        A full-ride scholar from USYD, who creating content that connects across cultures from Sydney to LA. With 10M+ views across three accounts, I specialise in relatable storytelling, UGC production, and brand-aligned content for student, lifestyle, and education niches.
+        A full-ride scholar from USYD, who creating content that connects across cultures from Sydney to LA. With 15K+ followers and 10M+ views across three accounts, I specialise in relatable storytelling, UGC production, and brand-aligned content for student, lifestyle, and education niches.
       </p>
     </div>
 
